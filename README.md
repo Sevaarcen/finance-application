@@ -2,9 +2,9 @@
 Penn State University IST412 - Team 3
 
 ### Table of Contents
-1. [Team Members](#1.)
-2. [Spring Configuration](#2.)
-3. [Further Documentation](#3.)
+1. [Team Members](#1.-Team-Members)
+2. [Spring Configuration](#2.-Spring-Configuration)
+3. [Further Documentation](#3.-Further-Documentation)
 
 ### **1.** Team Members
 - Backend
