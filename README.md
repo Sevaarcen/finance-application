@@ -23,3 +23,4 @@ Penn State University IST412 - Team 3
 - Jar Packaging
 
 ### **3.** Further Documentation
+[Using GitHub](documentation/DeveloperReferences/git.md)
