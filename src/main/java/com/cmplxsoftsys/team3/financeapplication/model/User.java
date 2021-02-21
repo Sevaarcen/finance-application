@@ -3,9 +3,10 @@ package com.cmplxsoftsys.team3.financeapplication.model;
 import java.util.HashSet;
 import java.util.Set;
 
-//import javax.validation.constraints.Email;
-//import javax.validation.constraints.NotBlank;
-//import javax.validation.constraints.Size;
+/**import javax.validation.constraints.Email;
+*import javax.validation.constraints.NotBlank;
+*import javax.validation.constraints.Size;
+*/
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -28,7 +29,7 @@ public class User {
   public User() {
   }
 
-  //Constructor
+  /**Constructor*/
   public User(String username, String email, String password, String firstName, String lastName, String address) {
     this.username = username;
     this.email = email;
@@ -38,67 +39,67 @@ public class User {
     this.address = address;
   }
 
-  //Returns UserID
+  /**Returns UserID*/
   public String getId() {
     return id;
   }
   
-  //sets user first name
+  /**returns user first name*/
   public String getFirstName() {
     return firstName;
   }
   
-  //sets user first name
+  /**sets user first name*/
   public void setFirstName(String name) {
     this.firstName = name;
   }
   
-  //returns user last name
+  /**returns user last name*/
   public String getLastName() {
     return lastName;
   }
   
-  //sets user last name
+  /**sets user last name*/
   public void setLastName(String name) {
     this.lastName = name;
   }
   
-  //returns user address
+  /**returns user address*/
   public String getAddress() {
     return address;
   }
   
-  //Sets user address
+  /**Sets user address*/
   public void setAddress(String address) {
     this.address = address;
   }
   
-  //Sets userID
+  /**Sets userID*/
   public void setId(String id) {
     this.id = id;
   }
 
-  //Returns userName
+  /**Returns userName*/
   public String getUsername() {
     return username;
   }
 
-  //Sets userName
+  /**Sets userName*/
   public void setUsername(String username) {
     this.username = username;
   }
 
-  //Returns user Email
+  /**Returns user Email*/
   public String getEmail() {
     return email;
   }
 
-  //Sets user Email
+  /**Sets user Email*/
   public void setEmail(String email) {
     this.email = email;
   }
 
-  //Returns user password
+  /**Returns user password*/
   public String getPassword() {
     return password;
   }
@@ -108,12 +109,12 @@ public class User {
     this.password = password;
   }
 
-  //Returns the roles of the user
+  /**Returns the roles of the user*/
   public Set<Role> getRoles() {
     return roles;
   }
 
-  //Sets roles for a user
+  /**Sets roles for a user*/
   public void setRoles(Set<Role> roles) {
     this.roles = roles;
   }
