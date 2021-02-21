@@ -15,7 +15,7 @@ public class NewLoanRequest {
     private String requestor;
     private LOAN_TYPE loanType;
     private int loanTerm;
-    private float loanAmount;
+    private double loanAmount;
 
     /**
      * Returns the GUID of the loan request for correlation.
@@ -51,9 +51,9 @@ public class NewLoanRequest {
 
     /**
      * Returns the amount of currency in USD of the loan request.
-     * @return float of USD of loan amount requested
+     * @return amount of USD being requested
      */
-    public float getLoanAmount() {
+    public double getLoanAmount() {
         return this.loanAmount;
     }
 }

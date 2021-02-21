@@ -5,9 +5,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "roles")
 public class Role {
+  public enum ERole {
+    ROLE_USER,
+    ROLE_MODERATOR,
+    ROLE_ADMIN
+  }
+
   @Id
   private String id;
+  
   private ERole name;
+
+  
   public Role() {
   }
 

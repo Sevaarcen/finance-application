@@ -1,8 +1,8 @@
 package com.cmplxsoftsys.team3.financeapplication.security;
 
-import com.connellboyce.peppergarden.security.jwt.AuthEntryPointJwt;
-import com.connellboyce.peppergarden.security.jwt.AuthTokenFilter;
-import com.connellboyce.peppergarden.security.services.UserDetailsServiceImpl;
+import com.cmplxsoftsys.team3.financeapplication.security.jwt.AuthEntryPointJwt;
+import com.cmplxsoftsys.team3.financeapplication.security.jwt.AuthTokenFilter;
+import com.cmplxsoftsys.team3.financeapplication.security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
@@ -17,6 +17,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.client.HttpServerErrorException.NotImplemented;
 
 @Configuration
 @EnableWebSecurity
@@ -77,6 +78,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
     }
 }
