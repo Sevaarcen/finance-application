@@ -1,10 +1,23 @@
 package com.cmplxsoftsys.team3.financeapplication.model;
 
+import java.util.Date;
+
 public class Loan {
+    
+    /**
+     * All the possible types of loans that may be regulated differently.
+     */
+    public enum LOAN_TYPE {
+        HOUSE,
+        CAR,
+        PERSONAL
+    }
+
     private double annualInterestRate;
     private int numberOfYears;
     private double loanAmount;
-    private java.util.Date loanDate;
+    private Date loanDate;
+    private LOAN_TYPE loanType;
     
     /** Default constructor */
     public Loan() {
@@ -60,7 +73,15 @@ public class Loan {
     }
 
     /** Return loan date */
-    public java.util.Date getLoanDate() {
+    public Date getLoanDate() {
         return loanDate;
-    }   
+    }
+
+    /**
+     * Returns the type of loan the requester wants.
+     * @return value corresponding to loan type from LOAN_TYPES enum.
+     */
+    public LOAN_TYPE loanType() {
+        return this.loanType;
+    }
 }

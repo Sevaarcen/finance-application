@@ -23,7 +23,7 @@ public class AuthController {
      * Checks to verify username and password as a comparison to what is already set
      */
     public static boolean isVerified(String username,String password){
-        if (username == "hi" && password =="hello"){
+        if (username.equals("hi") && password.equals("hello")){
             return true;
         }
         else{

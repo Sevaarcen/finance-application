@@ -1,15 +1,11 @@
 package com.cmplxsoftsys.team3.financeapplication.payload.request;
 
+import com.cmplxsoftsys.team3.financeapplication.model.Loan.LOAN_TYPE;;
+
 /**
- * This class is used to marshall requests for new loans by customers.
+ * This class is used to marshal requests for new loans by customers.
  */
 public class NewLoanRequest { 
-
-    public enum LOAN_TYPE {
-        HOUSE,
-        CAR,
-        PERSONAL
-    }
 
     private String loanId;
     private String requestor;
@@ -33,14 +29,7 @@ public class NewLoanRequest {
         return this.requestor;
     }
 
-    /**
-     * Returns the type of loan the requester wants.
-     * @return value corresponding to loan type from LOAN_TYPES enum.
-     */
-    public LOAN_TYPE loanType() {
-        return this.loanType;
-    }
-
+    
     /**
      * Returns the term of the requested loan in months.
      * @return number of months of the loan's term.
@@ -55,5 +44,13 @@ public class NewLoanRequest {
      */
     public double getLoanAmount() {
         return this.loanAmount;
+    }
+
+    /**
+     * Returns the loan type being requested by the customer.
+     * @return the type of loan.
+     */
+    public LOAN_TYPE getLoanType() {
+        return this.loanType;
     }
 }

@@ -8,6 +8,7 @@ import java.util.Optional;
  * Interface to allow querying users based on the backend Mongo database.
  */
 public interface UserRepository extends MongoRepository<User, String> {
+
     /**
      * Searches for a user in the DB and returns if found.
      * @param username username to search for

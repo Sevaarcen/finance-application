@@ -2,6 +2,9 @@ package com.cmplxsoftsys.team3.financeapplication.payload.response;
 
 public class MessageResponse {
 
+    /**
+     * Enum for various priority and types of messages being exchanged. Useful for determining how it should be displayed to the user.
+     */
     public enum MESSAGE_TYPE {
         INFORMATIONAL,
         WARNING,
@@ -11,6 +14,7 @@ public class MessageResponse {
     private String message;
     private MESSAGE_TYPE type;
 
+    
     /**
      * Returns the message to display to the user about their request.
      * @return a String containing the message to display.

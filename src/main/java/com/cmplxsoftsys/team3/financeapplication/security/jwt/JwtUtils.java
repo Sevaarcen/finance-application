@@ -21,10 +21,10 @@ public class JwtUtils {
      */
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
-    @Value("${connellboyce.app.jwtSecret}")
+    //@Value("${com.cmplxsoftsys.team3.financeapplication.app.jwtSecret}")
     private String jwtSecret;
 
-    @Value("${connellboyce.app.jwtExpirationMs}")
+    //@Value("${com.cmplxsoftsys.team3.financeapplication.app.jwtExpirationMs}")
     private int jwtExpirationMs;
 
     /**

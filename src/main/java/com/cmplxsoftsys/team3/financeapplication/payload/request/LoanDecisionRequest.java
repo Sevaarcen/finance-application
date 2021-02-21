@@ -1,10 +1,13 @@
 package com.cmplxsoftsys.team3.financeapplication.payload.request;
 
 /**
- * This class is used to marshall requests from employees and update a loan request.
+ * This class is used to marshal requests from employees and update a loan request.
  */
 public class LoanDecisionRequest {
 
+    /**
+     * An enum containing all possible decisions a loan officer is able to make.
+     */
     public enum LOAN_DECISION {
         PENDING,
         DENIED,
