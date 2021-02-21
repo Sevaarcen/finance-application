@@ -5,14 +5,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.cmplxsoftsys.team3.financeapplication.controller.WebController;
+import com.cmplxsoftsys.team3.financeapplication.controller.UiController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringBootTest
-public class WebControllerTests {
+public class UiControllerTests {
     @Autowired
-    private WebController controller;
+    private UiController controller;
 
     @Test
     public void contextLoads() throws Exception {
