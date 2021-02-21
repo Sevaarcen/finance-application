@@ -18,6 +18,9 @@ public class User {
   private String username;
   private String email;
   private String password;
+  private String firstName;
+  private String lastName;
+  private String address;
 
   @DBRef
   private Set<Role> roles = new HashSet<>();
@@ -36,7 +39,37 @@ public class User {
   public String getId() {
     return id;
   }
-
+  
+  //sets user first name
+  public String getFirstName() {
+    return firstName;
+  }
+  
+  //sets user first name
+  public void setFirstName(String name) {
+    this.firstName = name;
+  }
+  
+  //returns user last name
+  public String getLastName() {
+    return lastName;
+  }
+  
+  //sets user last name
+  public void setLastName(String name) {
+    this.lastName = name;
+  }
+  
+  //returns user address
+  public String getAddress() {
+    return address;
+  }
+  
+  //Sets user address
+  public void setAddress(String address) {
+    this.address = address;
+  }
+  
   //Sets userID
   public void setId(String id) {
     this.id = id;
