@@ -44,7 +44,7 @@ public class User {
     return id;
   }
   
-  /**sets user first name*/
+  /**returns user first name*/
   public String getFirstName() {
     return firstName;
   }
