@@ -29,12 +29,12 @@ public class User {
   }
 
   //Constructor
-  public User(String username, String email, String password, String fname, String lname, String address) {
+  public User(String username, String email, String password, String firstName, String lastName, String address) {
     this.username = username;
     this.email = email;
     this.password = password;
-    this.fname = firstName;
-    this.lname = lastName;
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.address = address;
   }
 
