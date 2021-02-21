@@ -1,4 +1,4 @@
-package com.cmplxsoftsys.team3.financeapplication.modeltests;
+package com.cmplxsoftsys.team3.financeapplication.payloadtests;
 
 public class SignupTests {
     

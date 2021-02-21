@@ -1,4 +1,4 @@
-package com.cmplxsoftsys.team3.financeapplication;
+package com.cmplxsoftsys.team3.financeapplication.controllertests;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,11 +14,16 @@ public class UiControllerTests {
     @Autowired
     private UiController controller;
 
+    /**
+     * This function tests that the controller can be instantiated correctly.
+     * @throws Exception
+     */
     @Test
     public void contextLoads() throws Exception {
         assertThat(controller).isNotNull();
     }
 
+    
     @Test
     public void validReturn() {
         assertEquals("index", controller.getHomepage());

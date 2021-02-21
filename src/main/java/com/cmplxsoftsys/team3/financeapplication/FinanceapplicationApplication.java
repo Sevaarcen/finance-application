@@ -6,8 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class FinanceapplicationApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(FinanceapplicationApplication.class, args);
-	}
+    /**
+     * This method starts the Spring Application and the associated web services.
+     * @param args command line arguments
+     */
+    public static void main(String[] args) {
+            SpringApplication.run(FinanceapplicationApplication.class, args);
+    }
 
 }
