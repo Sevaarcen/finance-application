@@ -20,27 +20,27 @@ public class Role {
   public Role() {
   }
 
-  //Constructor
+  /**Constructor*/
   public Role(ERole name) {
     this.name = name;
   }
 
-  //Returns userID
+  /**Returns userID*/
   public String getId() {
     return id;
   }
 
-  //Sets ID of user to specified ID
+  /**Sets ID of user to specified ID*/
   public void setId(String id) {
     this.id = id;
   }
 
-  //Returns userName
+  /**Returns userName*/
   public ERole getName() {
     return name;
   }
 
-  //Sets userName
+  /**Sets userName*/
   public void setName(ERole name) {
     this.name = name;
   }
