@@ -3,7 +3,7 @@ package com.cmplxsoftsys.team3.financeapplication.payload.request;
 /**
  * This class marshalls the request for a new customer account.
  */
-public class SignUp {
+public class SignUpRequest {
 
     private String username;
     private String password;
