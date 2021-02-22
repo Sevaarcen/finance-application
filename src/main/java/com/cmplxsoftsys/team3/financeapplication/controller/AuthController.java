@@ -1,6 +1,9 @@
 package com.cmplxsoftsys.team3.financeapplication.controller;
 
 import org.springframework.stereotype.Controller;
+/**
+ * This class is used as an authorization mechanism to verify current and future users.
+ */
 
 @Controller
 public class AuthController {
