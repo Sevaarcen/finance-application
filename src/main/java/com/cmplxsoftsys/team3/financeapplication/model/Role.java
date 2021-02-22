@@ -4,6 +4,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "roles")
+/**
+ This class determines what permissions a specific user has and whether they are a user, moderator, or admin
+ */
 public class Role {
   public enum ERole {
     ROLE_USER,
