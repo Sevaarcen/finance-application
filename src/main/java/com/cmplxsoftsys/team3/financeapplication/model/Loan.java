@@ -2,6 +2,9 @@ package com.cmplxsoftsys.team3.financeapplication.model;
 
 import java.util.Date;
 
+/**
+ * The loan class is the structure for loans and keeps track of attributes of that loan
+ */
 public class Loan {
     
     /**

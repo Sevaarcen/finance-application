@@ -13,11 +13,11 @@ import java.util.Set;
  * import javax.validation.constraints.Size;
  */
 
+/**
+ * This class is the structure for User entities and keeps track of user attributes
+ */
 @Document(collection = "users")
 public class User {
-  /**
-   * This class is the structure for User entities
-   */
   @Id
   private String id;
   private String username;
