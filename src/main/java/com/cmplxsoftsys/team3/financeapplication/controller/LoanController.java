@@ -3,6 +3,10 @@ package com.cmplxsoftsys.team3.financeapplication.controller;
 import com.cmplxsoftsys.team3.financeapplication.model.Loan;
 import org.springframework.stereotype.Controller;
 
+/**
+ * This class is used to connect the loan model class to its respective interface.
+ */
+
 @Controller
 public class LoanController {
     private final Loan model;
@@ -12,6 +16,9 @@ public class LoanController {
         this.model = model;
         this.view = view;
     }
+
+
+    //get loan view
 
     /**
      * Connects data from model class into the view
