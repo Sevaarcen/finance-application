@@ -9,6 +9,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * This is an interface for UserDetails services to be implemented. It builds an implementation by parsing users by username from our Mongo repository.
+ */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 

@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+/**
+ * This is an interface that gets and builds a user from provided user details, including allocated authorities.
+ */
 public class UserDetailsImpl implements UserDetails {
 
     private static final long serialVersionUID = 1L;
@@ -164,7 +167,7 @@ public class UserDetailsImpl implements UserDetails {
     }
 
     /**
-     * Check if the user's credientials are expired
+     * Check if the user's credentials are expired
      * @return a boolean: true if the credentials are not expired
      */
     @Override

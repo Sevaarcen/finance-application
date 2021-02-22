@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 /**
- * This is the class declaration for the JWT authentication utilities handling
+ * This is the class declaration for the JWT authentication utilities handling.
  */
 @Component
 public class JwtUtils {

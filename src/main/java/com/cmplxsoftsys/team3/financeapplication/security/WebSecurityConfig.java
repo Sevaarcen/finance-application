@@ -23,6 +23,9 @@ import org.springframework.web.client.HttpServerErrorException.NotImplemented;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 
+/**
+ * This is a class which extends WebSecurityConfigurerAdapter and handles a variety of web security functions including password encrypting, encoding, and authentication.
+ */
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -78,5 +81,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.cors().and().csrf().disable()
+                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+                .authorizeRequests().antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/api/test/**").permitAll()
+                .antMatchers("/").permitAll()
+                .antMatchers("/index.html").permitAll()
+                //.antMatchers("/api/pepper/**").permitAll()
+                .antMatchers("/actuator/**").permitAll()
+                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                .anyRequest().authenticated();
+
+        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 }

@@ -17,6 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * This class handles the internal HTTP Serverlet request and response communications that occur from token transmission, and handles the parsing of a JWT that is received.
+ */
 public class AuthTokenFilter extends OncePerRequestFilter {
 
     @Autowired

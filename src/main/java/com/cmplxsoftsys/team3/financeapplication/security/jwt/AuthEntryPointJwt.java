@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * This class is used to handle the authentication process for a given JWT when a user attempts to authenticate with the finance system.
+ */
 @Component
 public class AuthEntryPointJwt implements AuthenticationEntryPoint {
 
