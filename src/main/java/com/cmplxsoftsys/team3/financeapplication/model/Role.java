@@ -4,7 +4,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "roles")
+/**
+ This class links a user to a specific role
+ */
 public class Role {
+  /**
+   * These roles give users certain permissions within the application
+   */
   public enum ERole {
     ROLE_USER,
     ROLE_MODERATOR,
