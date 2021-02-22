@@ -1,5 +1,8 @@
 package com.cmplxsoftsys.team3.financeapplication.payload.response;
 
+/**
+ * Class for the response given to a user when they perform an action. This can be a sucess or error message.
+ */
 public class MessageResponse {
 
     /**

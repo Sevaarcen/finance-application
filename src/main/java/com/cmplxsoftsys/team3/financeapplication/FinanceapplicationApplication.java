@@ -3,6 +3,9 @@ package com.cmplxsoftsys.team3.financeapplication;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * This is the launcher class with the main method.
+ */
 @SpringBootApplication
 public class FinanceapplicationApplication {
 
