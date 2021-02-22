@@ -3,10 +3,10 @@ package com.cmplxsoftsys.team3.financeapplication.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "roles")
 /**
  This class links a user to a specific role
  */
+@Document(collection = "roles")
 public class Role {
   /**
    * These roles give users certain permissions within the application
