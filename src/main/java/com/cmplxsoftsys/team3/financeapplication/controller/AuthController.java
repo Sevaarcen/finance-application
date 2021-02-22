@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 //import com.bezkoder.spring.jwt.mongodb.security.jwt.JwtUtils;
 //import com.bezkoder.spring.jwt.mongodb.security.services.UserDetailsImpl;
 
+/**
+ * This class is used as an authorization mechanism to verify current and future users.
+ */
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
