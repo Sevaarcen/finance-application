@@ -1,0 +1,320 @@
+body {
+    background-color: white;
+    font-family: "Leelawadee UI";
+    /*display: flex;*/
+    /*flex-direction: row;*/
+}
+
+h1 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/*h3 {*/
+/*    margin-top: 5px;*/
+/*    margin-bottom: 5px;*/
+/*}*/
+
+h4 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h5 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h6 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.lightText {
+    color: white;
+}
+
+#icons {
+    stroke: mediumpurple;
+    fill: transparent;
+    width: 50px;
+    height: 50px;
+}
+
+#icons-sm {
+    stroke: mediumpurple;
+    fill: transparent;
+    width: 30px;
+    height: 30px;
+}
+
+.cardRadius {
+    border-radius: 8px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar {
+    background-color: whitesmoke;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+.navbarLinksContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.navbarLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+.navbarLinks > h2 {
+    padding-left: 10px;
+}
+
+.navbarButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbarButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: gray;
+    /*color: #c399ff;*/
+    padding: 5px 20px;
+    margin: 5px 0px;
+    outline: none;
+    box-shadow: 1px 2px 2px 1px #b0b1b1;
+}
+
+.navbarButton:hover {
+    cursor: pointer;
+}
+
+#navbarButtonIcons {
+    stroke: black;
+    fill: transparent;
+    width: 15px;
+    height: 15px;
+    padding-right: 5px;
+}
+
+.dashboardView {
+    display: flex;
+    flex-direction: column;
+    flex: 7;
+}
+
+.titleRow {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.balanceCard {
+    background-color: darkslategray;
+    display: flex;
+    flex: 2;
+    margin: 0px 20px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.balanceCard > .balanceCardText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.balanceCard > .balanceCardPaymentMethodLogo {
+
+}
+
+.accountDetailsCard {
+    background-color: darkslategray;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    margin: 0px 20px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.middleContentRow {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.balanceGraph {
+    background: rgb(27,100,180);
+    background: linear-gradient(0deg, rgba(27,100,180,1) 0%, rgba(239,208,255,1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+    margin: 0px 20px 0px 0px;
+}
+
+.paymentCard {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 0px 20px;
+}
+
+.paymentCardTopRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.paymentCardMetrics {
+    padding: 0px 20px;
+}
+
+.paymentCardLogo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#payIconDetails {
+    stroke: black;
+    fill: transparent;
+    width: 50px;
+    height: 50px;
+}
+
+.paymentCardCurrentLoanDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.paymentCardButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.primaryButton {
+    background-color: mediumpurple;
+    color: white;
+    border-radius: 8px;
+    border-color: transparent;
+    padding: 5px 20px;
+    outline: none;
+}
+
+.secondaryButton {
+    background-color: transparent;
+    border-radius: 8px;
+    border-color: #c399ff;
+    color: #c399ff;
+    padding: 5px 20px;
+    outline: none;
+}
+
+.primaryButton:hover {
+    cursor: pointer;
+}
+
+.secondaryButton:hover {
+    cursor: pointer;
+}
+
+.currentLoansList {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 20px;
+    flex: 0.5;
+}
+
+.loanStatusCard {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    margin-bottom: 10px;
+}
+
+.loanStatusCard > .loanStatusTopRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.loanStatusCard > .loanStatusSecondRow {
+    width: 80%;
+}
+
+.bottomContentRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.transactionCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+    background-color: whitesmoke;
+    margin-right: 20px;
+}
+
+.contentCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: gray;
+    margin: 0px 20px;
+}
