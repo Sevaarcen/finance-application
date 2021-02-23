@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private AuthEntryPointJwt unauthorizedHandler;
 
     /**
-     * Returns a new JWT Authentication token filter
+     * Returns a new JWT Authentication token filter.
      * @return A new Jwt Authentication Token filter object
      */
     @Bean
