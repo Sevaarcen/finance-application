@@ -17,7 +17,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.client.HttpServerErrorException.NotImplemented;
 
 /**
  * This is a class which extends WebSecurityConfigurerAdapter and handles a variety of web security functions including password encrypting, encoding, and authentication.

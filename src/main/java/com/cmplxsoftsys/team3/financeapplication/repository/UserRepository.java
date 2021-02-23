@@ -2,13 +2,13 @@ package com.cmplxsoftsys.team3.financeapplication.repository;
 
 import com.cmplxsoftsys.team3.financeapplication.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
+
 import java.util.Optional;
 
 /**
  * Interface to allow querying users based on the backend Mongo database.
  */
 public interface UserRepository extends MongoRepository<User, String> {
-
     /**
      * Searches for a user in the DB and returns if found.
      * @param username username to search for
@@ -22,8 +22,7 @@ public interface UserRepository extends MongoRepository<User, String> {
      * @return if username is in use already
      */
     Boolean existsByUsername(String username);
-    
-    
+
     /**
      * Searches for a user in the DB and says if the email was found.
      * @param email email address to search for

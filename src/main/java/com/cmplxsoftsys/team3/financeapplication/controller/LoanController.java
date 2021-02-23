@@ -1,6 +1,7 @@
 package com.cmplxsoftsys.team3.financeapplication.controller;
 
 import com.cmplxsoftsys.team3.financeapplication.model.Loan;
+import com.cmplxsoftsys.team3.financeapplication.service.LoanService;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -9,6 +10,13 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class LoanController {
+    private LoanService loanService;
+
+    public LoanController(LoanService loanService) {
+        this.loanService = loanService;
+    }
+
+    /**
     private final Loan model;
     private final Loan view;
 
@@ -23,6 +31,7 @@ public class LoanController {
     /**
      * Connects data from model class into the view
      */
+    /**
     public void setLoanAnnualInterestRate(double annualInterestRate){
         model.setAnnualInterestRate(annualInterestRate);
     }
@@ -48,4 +57,5 @@ public class LoanController {
     public double getLoanLoanAmount(){
         return model.getLoanAmount();
     }
+    */
 }

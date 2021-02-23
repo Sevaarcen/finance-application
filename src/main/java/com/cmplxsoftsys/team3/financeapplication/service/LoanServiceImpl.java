@@ -26,4 +26,19 @@ public class LoanServiceImpl implements LoanService {
     public ResponseEntity<?> convertToUSD() {
         return null;
     }
+
+    @Override
+    public ResponseEntity<?> submitLoanApplication() {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<?> getLoansForAccount() {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<?> getLoanApplicationStatus() {
+        return null;
+    }
 }

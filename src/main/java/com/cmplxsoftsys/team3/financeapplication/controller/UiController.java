@@ -23,7 +23,7 @@ public class UiController {
      * This method renders and sends the HTML of the Login Page view
      */
 
-    @GetMapping("/")
+    @GetMapping("/login")
     public String getLoginPage() {
         return "index";
     }
@@ -32,7 +32,7 @@ public class UiController {
      * This method renders and sends the HTML of the Create Account Page view
      */
 
-    @GetMapping("/")
+    @GetMapping("/account")
     public String getCreateAccountPage() {
         return "index";
     }
