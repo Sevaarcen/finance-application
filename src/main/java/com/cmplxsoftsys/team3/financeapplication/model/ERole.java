@@ -1,4 +1,4 @@
-package com.cmplxsoftsys.team3.financeapplication.models;
+package com.cmplxsoftsys.team3.financeapplication.model;
 
 public enum ERole {
     ROLE_USER,

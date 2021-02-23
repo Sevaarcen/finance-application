@@ -1,11 +1,11 @@
 package com.cmplxsoftsys.team3.financeapplication.repository;
 
-import com.cmplxsoftsys.team3.financeapplication.models.ERole;
-import com.cmplxsoftsys.team3.financeapplication.models.Role;
+import com.cmplxsoftsys.team3.financeapplication.model.ERole;
+import com.cmplxsoftsys.team3.financeapplication.model.Role;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
 
-public interface RoleRepo extends MongoRepository<Role, String> {
+public interface RoleRepository extends MongoRepository<Role, String> {
         Optional<Role> findByName(ERole name);
 }

@@ -19,4 +19,23 @@ public interface LoanService {
      */
     public ResponseEntity<?> convertToUSD();
 
+    /**
+     * Returns an HTTP conversion status
+     * @return status
+     */
+    public ResponseEntity<?> submitLoanApplication();
+
+    /**
+     * Returns an HTTP conversion status
+     * @return status
+     */
+    public ResponseEntity<?> getLoansForAccount();
+
+    /**
+     * Returns an HTTP conversion status
+     * @return status
+     */
+    public ResponseEntity<?> getLoanApplicationStatus();
+
+
 }

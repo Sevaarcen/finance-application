@@ -5,32 +5,31 @@ package com.cmplxsoftsys.team3.financeapplication.payload.response;
  */
 public class MessageResponse {
 
+    private String message;
+
     /**
-     * Enum for various priority and types of messages being exchanged. Useful for determining how it should be displayed to the user.
+     * Full Constructor
+     *
+     * @param message message to be returned in the response body
      */
-    public enum MESSAGE_TYPE {
-        INFORMATIONAL,
-        WARNING,
-        ERROR
+    public MessageResponse(String message) {
+        this.message = message;
     }
 
-    private String message;
-    private MESSAGE_TYPE type;
-
-    
     /**
      * Returns the message to display to the user about their request.
      * @return a String containing the message to display.
      */
     public String getMessage() {
-        return this.message;
+        return message;
     }
 
     /**
-     * This returns the type of message it is, useful for determining how to show the message.
-     * @return the MESSAGE_TYPE of the message
+     * Sets the message to be displayed
+     * @param message a String containing a message
      */
-    public MESSAGE_TYPE type() {
-        return this.type;
+    public void setMessage(String message) {
+        this.message = message;
     }
+
 }

@@ -1,20 +1,30 @@
 package com.cmplxsoftsys.team3.financeapplication.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.cmplxsoftsys.team3.financeapplication.model.Role;
+import com.cmplxsoftsys.team3.financeapplication.model.User;
+import com.cmplxsoftsys.team3.financeapplication.model.ERole;
+import com.cmplxsoftsys.team3.financeapplication.payload.request.LoginRequest;
+import com.cmplxsoftsys.team3.financeapplication.payload.request.SignUpRequest;
+import com.cmplxsoftsys.team3.financeapplication.payload.response.JwtResponse;
+import com.cmplxsoftsys.team3.financeapplication.payload.response.MessageResponse;
+import com.cmplxsoftsys.team3.financeapplication.repository.RoleRepository;
+import com.cmplxsoftsys.team3.financeapplication.repository.UserRepository;
+import com.cmplxsoftsys.team3.financeapplication.security.jwt.JwtUtils;
+import com.cmplxsoftsys.team3.financeapplication.security.service.UserDetailsImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import javax.validation.Valid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.*;
 
-//import org.springframework.security.authentication.AuthenticationManager;
-//import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-//import org.springframework.security.core.Authentication;
-//import org.springframework.security.core.context.SecurityContextHolder;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-//import com.bezkoder.spring.jwt.mongodb.payload.request.LoginRequest;
-//import com.bezkoder.spring.jwt.mongodb.payload.request.SignupRequest;
-//import com.bezkoder.spring.jwt.mongodb.payload.response.JwtResponse;
-//import com.bezkoder.spring.jwt.mongodb.payload.response.MessageResponse;
-//import com.bezkoder.spring.jwt.mongodb.security.jwt.JwtUtils;
-//import com.bezkoder.spring.jwt.mongodb.security.services.UserDetailsImpl;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * This class is used as an authorization mechanism to verify current and future users.
@@ -24,17 +34,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
-    /**@Autowired
-    //AuthenticationManager authenticationManager;
+    @Autowired
+    AuthenticationManager authenticationManager;
 
     @Autowired
-    UserRepo userRepository;
+    UserRepository userRepository;
 
     @Autowired
-    RoleRepo roleRepository;
+    RoleRepository roleRepository;
 
     @Autowired
     JwtUtils jwtUtils;
+
+    @Autowired
+    PasswordEncoder encoder;
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -57,7 +70,7 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
+    public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
@@ -73,7 +86,7 @@ public class AuthController {
         // Create new user's account
         User user = new User(signUpRequest.getUsername(),
                 signUpRequest.getEmail(),
-                encoder.encode(signUpRequest.getPassword()));
+                encoder.encode(signUpRequest.getPassword()), signUpRequest.getFirstName(), signUpRequest.getLastName(), signUpRequest.getAddress());
 
         Set<String> strRoles = signUpRequest.getRoles();
         Set<Role> roles = new HashSet<>();
@@ -109,5 +122,5 @@ public class AuthController {
         userRepository.save(user);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
-    }*/
+    }
 }
