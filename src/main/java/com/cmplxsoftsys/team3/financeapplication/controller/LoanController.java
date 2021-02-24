@@ -1,61 +1,30 @@
 package com.cmplxsoftsys.team3.financeapplication.controller;
 
-import com.cmplxsoftsys.team3.financeapplication.model.Loan;
-import com.cmplxsoftsys.team3.financeapplication.service.LoanService;
-import org.springframework.stereotype.Controller;
+import com.cmplxsoftsys.team3.financeapplication.payload.request.LoanApplicationRequest;
+import com.cmplxsoftsys.team3.financeapplication.payload.response.MessageResponse;
+import com.cmplxsoftsys.team3.financeapplication.service.LoanApplicationService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 /**
  * This class is used to connect the loan model class to its respective interface.
  */
 
-@Controller
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RestController
+@RequestMapping("/api/loan")
 public class LoanController {
-    private LoanService loanService;
+    private final LoanApplicationService loanApplicationService;
 
-    public LoanController(LoanService loanService) {
-        this.loanService = loanService;
+    public LoanController(LoanApplicationService loanApplicationService) {
+        this.loanApplicationService = loanApplicationService;
     }
 
-    /**
-    private final Loan model;
-    private final Loan view;
-
-    public LoanController(Loan model, Loan view){
-        this.model = model;
-        this.view = view;
+    @PostMapping("/request")
+    public ResponseEntity<?> requestNewLoan(@Valid @RequestBody LoanApplicationRequest request) {
+        loanApplicationService.submitLoanApplication(request);
+        return ResponseEntity.ok(new MessageResponse("Loan application submitted successfully!"));
     }
-
-
-    //get loan view
-
-    /**
-     * Connects data from model class into the view
-     */
-    /**
-    public void setLoanAnnualInterestRate(double annualInterestRate){
-        model.setAnnualInterestRate(annualInterestRate);
-    }
-
-    public double getLoanAnnualInterestRate(){
-        return model.getAnnualInterestRate();
-    }
-
-
-    public void setLoanNumberOfYears(int numberOfYears){
-        model.setNumberOfYears(numberOfYears);
-    }
-
-    public int getLoanNumberOfYears(){
-        return model.getNumberOfYears();
-    }
-
-
-    public void setLoanLoanAmount(double loanAmount){
-        model.setLoanAmount(loanAmount);
-    }
-
-    public double getLoanLoanAmount(){
-        return model.getLoanAmount();
-    }
-    */
 }

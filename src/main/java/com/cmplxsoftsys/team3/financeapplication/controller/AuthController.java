@@ -1,8 +1,8 @@
 package com.cmplxsoftsys.team3.financeapplication.controller;
 
+import com.cmplxsoftsys.team3.financeapplication.model.ERole;
 import com.cmplxsoftsys.team3.financeapplication.model.Role;
 import com.cmplxsoftsys.team3.financeapplication.model.User;
-import com.cmplxsoftsys.team3.financeapplication.model.ERole;
 import com.cmplxsoftsys.team3.financeapplication.payload.request.LoginRequest;
 import com.cmplxsoftsys.team3.financeapplication.payload.request.SignUpRequest;
 import com.cmplxsoftsys.team3.financeapplication.payload.response.JwtResponse;
@@ -12,7 +12,6 @@ import com.cmplxsoftsys.team3.financeapplication.repository.UserRepository;
 import com.cmplxsoftsys.team3.financeapplication.security.jwt.JwtUtils;
 import com.cmplxsoftsys.team3.financeapplication.security.service.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,6 +20,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

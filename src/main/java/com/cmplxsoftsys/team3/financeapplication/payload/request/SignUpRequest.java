@@ -1,6 +1,5 @@
 package com.cmplxsoftsys.team3.financeapplication.payload.request;
 
-import com.cmplxsoftsys.team3.financeapplication.model.Role;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.util.HashSet;

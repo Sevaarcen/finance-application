@@ -1,37 +1,29 @@
 package com.cmplxsoftsys.team3.financeapplication.model;
 
+import org.springframework.data.annotation.Id;
+
 import java.util.Date;
 
 /**
  * The loan class is the structure for loans and keeps track of attributes of that loan
  */
 public class Loan {
-    
-    /**
-     * All the possible types of loans that may be regulated differently.
-     */
-    public enum LOAN_TYPE {
-        HOUSE,
-        CAR,
-        PERSONAL
-    }
+
+    @Id
+    private String id;
 
     private double annualInterestRate;
     private int numberOfYears;
     private double loanAmount;
     private Date loanDate;
-    private LOAN_TYPE loanType;
+    private String loanType;
     
-    /** Default constructor */
-    public Loan() {
-        this(7.5, 30, 100000);
-    }
-    
-    public Loan(double annualInterestRate, int numberOfYears, double loanAmount) {
+    public Loan(double annualInterestRate, int numberOfYears, double loanAmount, String loanType) {
         this.annualInterestRate = annualInterestRate;
         this.numberOfYears = numberOfYears;
         this.loanAmount = loanAmount;
         loanDate = new java.util.Date();
+        this.loanType = loanType;
     }
 
     /** Return annualInterestRate */
@@ -80,11 +72,13 @@ public class Loan {
         return loanDate;
     }
 
+    public void setLoanType(String loanType) { this.loanType = loanType; }
+
     /**
      * Returns the type of loan the requester wants.
      * @return value corresponding to loan type from LOAN_TYPES enum.
      */
-    public LOAN_TYPE loanType() {
+    public String getLoanType() {
         return this.loanType;
     }
 }
