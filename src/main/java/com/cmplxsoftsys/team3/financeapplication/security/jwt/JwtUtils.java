@@ -4,6 +4,7 @@ import com.cmplxsoftsys.team3.financeapplication.security.service.UserDetailsImp
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
@@ -20,10 +21,10 @@ public class JwtUtils {
      */
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
-    //@Value("${com.cmplxsoftsys.team3.financeapplication.app.jwtSecret}")
+    @Value("${financeapplication.app.jwtSecret}")
     private String jwtSecret;
 
-    //@Value("${com.cmplxsoftsys.team3.financeapplication.app.jwtExpirationMs}")
+    @Value("${financeapplication.app.jwtExpirationMs}")
     private int jwtExpirationMs;
 
     /**
