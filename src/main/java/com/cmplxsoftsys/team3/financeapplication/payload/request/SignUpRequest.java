@@ -2,6 +2,8 @@ package com.cmplxsoftsys.team3.financeapplication.payload.request;
 
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,11 +12,22 @@ import java.util.Set;
  */
 public class SignUpRequest {
 
+    @NotBlank(message = "Username is mandatory.")
     private String username;
+
+    @NotBlank(message = "Password is mandatory.")
     private String password;
+
+    @Email(message = "Valid email is mandatory.")
     private String email;
+
+    @NotBlank(message = "First name is mandatory.")
     private String firstName;
+
+    @NotBlank(message = "Last name is mandatory.")
     private String lastName;
+
+    @NotBlank(message = "Address is mandatory.")
     private String address;
 
     @DBRef
