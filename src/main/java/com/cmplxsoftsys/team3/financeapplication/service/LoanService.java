@@ -9,30 +9,35 @@ public interface LoanService {
 
     /**
      * Returns an HTTP verification status
+     *
      * @return status
      */
     public ResponseEntity<?> verifyLoanContents();
 
     /**
      * Returns an HTTP conversion status
+     *
      * @return status
      */
     public ResponseEntity<?> convertToUSD();
 
     /**
      * Returns an HTTP conversion status
+     *
      * @return status
      */
     public ResponseEntity<?> submitLoanApplication();
 
     /**
      * Returns an HTTP conversion status
+     *
      * @return status
      */
     public ResponseEntity<?> getLoansForAccount();
 
     /**
      * Returns an HTTP conversion status
+     *
      * @return status
      */
     public ResponseEntity<?> getLoanApplicationStatus();

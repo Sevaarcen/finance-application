@@ -11,6 +11,7 @@ public class LoanServiceImpl implements LoanService {
 
     /**
      * Returns an HTTP verification status
+     *
      * @return status
      */
     @Override
@@ -20,6 +21,7 @@ public class LoanServiceImpl implements LoanService {
 
     /**
      * Returns an HTTP conversion status
+     *
      * @return status
      */
     @Override

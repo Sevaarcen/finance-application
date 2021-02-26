@@ -11,8 +11,8 @@
 	<groupId>com.cmplxsoftsys.team3</groupId>
 	<artifactId>financeapplication</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>financeapplication</name>
-	<description>Demo project for Spring Boot</description>
+	<name>ATZ Finance Application</name>
+	<description>IST412 Final Project</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>

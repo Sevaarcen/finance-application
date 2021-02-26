@@ -34,6 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Returns a new JWT Authentication token filter.
+     *
      * @return A new Jwt Authentication Token filter object
      */
     @Bean
@@ -43,6 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Configures the authenticationManagerBuilder to handle the user's encoded password
+     *
      * @param authenticationManagerBuilder
      * @throws Exception
      */
@@ -53,6 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Returns the authenticationManagerBean for handling the encryption/decryption status of user credentials
+     *
      * @return The authenticationManagerBean parameters
      * @throws Exception
      */
@@ -64,6 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Encodes user passwords
+     *
      * @return A new BCryptPasswordEncoder object with the user's encoded password
      */
     @Bean

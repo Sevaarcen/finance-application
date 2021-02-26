@@ -5,11 +5,12 @@ package com.cmplxsoftsys.team3.financeapplication.payload.request;
  */
 public class LoginRequest {
     private String username;
-    
+
     private String password;
 
     /**
      * Returns the username from the request.
+     *
      * @return a String containing the username in the request
      */
     public String getUsername() {
@@ -18,6 +19,7 @@ public class LoginRequest {
 
     /**
      * Returns the password from the request.
+     *
      * @return a String containing the username in the request
      */
     public String getPassword() {

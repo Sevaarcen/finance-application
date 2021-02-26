@@ -11,6 +11,7 @@ import java.util.Optional;
 public interface UserRepository extends MongoRepository<User, String> {
     /**
      * Searches for a user in the DB and returns if found.
+     *
      * @param username username to search for
      * @return User object if found, otherwise nothing.
      */
@@ -18,6 +19,7 @@ public interface UserRepository extends MongoRepository<User, String> {
 
     /**
      * Searches for a user in the DB and says if the username was found.
+     *
      * @param username username to search for
      * @return if username is in use already
      */
@@ -25,6 +27,7 @@ public interface UserRepository extends MongoRepository<User, String> {
 
     /**
      * Searches for a user in the DB and says if the email was found.
+     *
      * @param email email address to search for
      * @return if email is in use already
      */

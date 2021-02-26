@@ -26,10 +26,10 @@ public class OpenAPIConfig {
                                 .bearerFormat("JWT")))
                 .info(new Info().title("ATZ Finance")
                         .description("IST412 Final Project")
-        .version("v0.0.1")
-        .license(new License().name("Apache 2.0").url("http://springdoc.org")))
-      .externalDocs(new ExternalDocumentation()
-                .description("ATX Wiki Documentation")
-                .url("https://springshop.wiki.github.org/docs"));
+                        .version("v0.0.1")
+                        .license(new License().name("Apache 2.0").url("http://springdoc.org")))
+                .externalDocs(new ExternalDocumentation()
+                        .description("ATX Wiki Documentation")
+                        .url("https://springshop.wiki.github.org/docs"));
     }
 }
