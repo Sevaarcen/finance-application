@@ -25,10 +25,10 @@ public class AuthEntryPointJwt implements AuthenticationEntryPoint {
     /**
      * Handles the Authentication for a JWT
      *
-     * @param request the http request and its body
-     * @param response the http response to be returned
+     * @param request       the http request and its body
+     * @param response      the http response to be returned
      * @param authException exception for insufficient authorization
-     * @throws IOException file exception
+     * @throws IOException      file exception
      * @throws ServletException servlet exception
      */
     @Override

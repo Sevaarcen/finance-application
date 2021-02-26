@@ -17,6 +17,7 @@ public class LoanApplicationRequest {
 
     /**
      * Returns the requester of the loan.
+     *
      * @return a String containing the username in the request
      */
     public String getUserId() {
@@ -26,6 +27,7 @@ public class LoanApplicationRequest {
 
     /**
      * Returns the amount of currency in USD of the loan request.
+     *
      * @return amount of USD being requested
      */
     public double getLoanAmount() {
@@ -34,6 +36,7 @@ public class LoanApplicationRequest {
 
     /**
      * Returns the loan type being requested by the customer.
+     *
      * @return the type of loan.
      */
     public String getType() {

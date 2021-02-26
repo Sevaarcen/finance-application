@@ -17,7 +17,7 @@ public class Loan {
     private double loanAmount;
     private Date loanDate;
     private String loanType;
-    
+
     public Loan(double annualInterestRate, int numberOfYears, double loanAmount, String loanType) {
         this.annualInterestRate = annualInterestRate;
         this.numberOfYears = numberOfYears;
@@ -26,56 +26,77 @@ public class Loan {
         this.loanType = loanType;
     }
 
-    /** Return annualInterestRate */
+    /**
+     * Return annualInterestRate
+     */
     public double getAnnualInterestRate() {
         return annualInterestRate;
     }
 
-    /** Set a new annualInterestRate */
+    /**
+     * Set a new annualInterestRate
+     */
     public void setAnnualInterestRate(double annualInterestRate) {
         this.annualInterestRate = annualInterestRate;
     }
 
-    /** Return numberOfYears */
+    /**
+     * Return numberOfYears
+     */
     public int getNumberOfYears() {
         return numberOfYears;
     }
 
-    /** Set a new numberOfYears */
+    /**
+     * Set a new numberOfYears
+     */
     public void setNumberOfYears(int numberOfYears) {
         this.numberOfYears = numberOfYears;
     }
 
-    /** Return loanAmount */
+    /**
+     * Return loanAmount
+     */
     public double getLoanAmount() {
         return loanAmount;
     }
 
-    /** Set a newloanAmount */
+    /**
+     * Set a newloanAmount
+     */
     public void setLoanAmount(double loanAmount) {
         this.loanAmount = loanAmount;
     }
 
-    /** Find monthly payment */
+    /**
+     * Find monthly payment
+     */
     public double getMonthlyPayment() {
         double monthlyInterestRate = annualInterestRate / 1200;
-        return loanAmount * monthlyInterestRate / (1 -(Math.pow(1 / (1 + monthlyInterestRate), numberOfYears * 12)));
+        return loanAmount * monthlyInterestRate / (1 - (Math.pow(1 / (1 + monthlyInterestRate), numberOfYears * 12)));
     }
 
-    /** Find total payment */
+    /**
+     * Find total payment
+     */
     public double getTotalPayment() {
         return getMonthlyPayment() * numberOfYears * 12;
     }
 
-    /** Return loan date */
+    /**
+     * Return loan date
+     */
     public Date getLoanDate() {
         return loanDate;
     }
 
-    public void setLoanType(String loanType) { this.loanType = loanType; }
+    public void setLoanType(String loanType) {
+        this.loanType = loanType;
+    }
 
     /**
      * Returns the type of loan the requester wants.
+     *
      * @return value corresponding to loan type from LOAN_TYPES enum.
      */
     public String getLoanType() {

@@ -18,6 +18,7 @@ public class MessageResponse {
 
     /**
      * Returns the message to display to the user about their request.
+     *
      * @return a String containing the message to display.
      */
     public String getMessage() {
@@ -26,6 +27,7 @@ public class MessageResponse {
 
     /**
      * Sets the message to be displayed
+     *
      * @param message a String containing a message
      */
     public void setMessage(String message) {

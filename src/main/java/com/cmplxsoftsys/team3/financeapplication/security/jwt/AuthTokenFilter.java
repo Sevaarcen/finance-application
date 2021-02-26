@@ -36,11 +36,11 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     /**
      * Internal Filtration
      *
-     * @param request http request received
-     * @param response http response to be sent
+     * @param request     http request received
+     * @param response    http response to be sent
      * @param filterChain filters the http
      * @throws ServletException servlet exception
-     * @throws IOException file exception
+     * @throws IOException      file exception
      */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
