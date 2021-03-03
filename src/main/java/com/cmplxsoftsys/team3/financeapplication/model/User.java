@@ -36,7 +36,7 @@ public class User {
     /**
      * Constructor
      */
-    public User(String username, String email, String password, String firstName, String lastName, String address) {
+    public User(String username, String password, String email, String firstName, String lastName, String address) {
         this.username = username;
         this.email = email;
         this.password = password;

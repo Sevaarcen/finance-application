@@ -36,6 +36,10 @@ public class JwtUtils {
     public String generateJwtToken(Authentication authentication) {
 
         //Creates a User Detail object with our custom authentications
+        System.out.println(authentication);
+        System.out.println(authentication.getPrincipal());
+        System.out.println(authentication.getCredentials());
+        System.out.println(authentication.getDetails());
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
 
         //Build JWT
