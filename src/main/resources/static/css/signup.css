@@ -1,0 +1,192 @@
+html {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+main {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background: linear-gradient(0deg, rgba(0,0,0,0.49670290479473034) 0%, rgba(0,0,0,0.49670290479473034) 100%), url("../images/cityBg.jpg") no-repeat fixed center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /*Thanks to: https://css-tricks.com/perfect-full-page-background-image/*/
+    font-family: "Leelawadee UI";
+
+    /*height: 100vh;*/
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 0px;
+    /*white-space: nowrap;*/
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    /*height: 100%;*/
+    /*width: 100%;*/
+    /*https://rajatamil.medium.com/css-make-a-div-full-screen-402f9a935d15*/
+}
+
+h1 {
+    color: white;
+    font-size: 48px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    color: white;
+    font-size: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h5 {
+    color: white;
+    margin: 20px 20px 5px 20px;
+}
+
+.infoPane {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.registrationPane {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.registrationPane > .registrationTitle {
+    color: #103e10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.formContainer > input {
+    margin: 2px;
+}
+
+.signUpButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #103e10;
+    border-radius: 0px;
+    border-width: 1px;
+    color: white;
+    padding: 10px;
+    white-space: nowrap;
+    margin: 5px 0px;
+    outline: none;
+}
+
+.signUpButton:hover {
+    cursor: pointer;
+}
+
+/*https://stackoverflow.com/questions/917610/put-icon-inside-input-element-in-a-form*/
+.signUpInputName {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-indent: 20%;
+    background: white url("../images/user-plus.svg") no-repeat scroll 5px 5px;
+}
+
+.signUpInputUsername {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-indent: 20%;
+    background: white url("../images/user.svg") no-repeat scroll 5px 5px;
+}
+
+.signUpInputEmail {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-indent: 20%;
+    background: white url("../images/mail.svg") no-repeat scroll 5px 5px;
+}
+
+.signUpInputPassword {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-indent: 20%;
+    background: white url("../images/lock.svg") no-repeat scroll 5px 5px;
+}
+
+.signUpInputAddress {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-indent: 20%;
+    background: white url("../images/home.svg") no-repeat scroll 5px 5px;
+}
+
+.signUpButtonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.alreadyHaveAccount {
+    color: #103e10;
+    font-size: x-small;
+}
+
+.socialIconsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5%;
+    width: 25%;
+}
+
+#socialIconsSm {
+    width: 24px;
+    height: 24px;
+    stroke: #103e10;
+}

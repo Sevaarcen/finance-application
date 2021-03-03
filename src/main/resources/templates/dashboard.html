@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/dashboard.css}" />
+    <title>ATZ Finance</title>
+</head>
+<body>
+<header>
+</header>
+<main>
+    <div class="container">
+        <div class="navbar cardRadius">
+            <div style="width: 100px; height: 100px; border-radius: 50%; background-color: red; margin-top: 20px"></div>
+            <h3>Daniel Johnson</h3>
+            <a href="/" style="color: mediumpurple; text-decoration: none">My Profile</a>
+            <div class="navbarLinksContainer">
+                <div class="navbarLinks">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="icons-sm" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    <h2>Dashboard</h2>
+                </div>
+                <div class="navbarLinks">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="icons-sm" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <h2>Account</h2>
+                </div>
+                <div class="navbarLinks">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="icons-sm" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                    <h2>Banking</h2>
+                </div>
+            </div>
+            <div class="navbarButtons">
+                <button class="navbarButton"><svg xmlns="http://www.w3.org/2000/svg" id="navbarButtonIcons" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>New Loan</button>
+                <button class="navbarButton"><svg xmlns="http://www.w3.org/2000/svg" id="navbarButtonIcons" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>Sign Out</button>
+            </div>
+
+        </div>
+        <div class="dashboardView">
+            <div class="titleRow">
+                <div class="titleContainer">
+                    <h1>Dashboard</h1>
+                    <h5>Welcome back, Daniel</h5>
+                </div>
+                <div class="balanceCard cardRadius">
+                    <div class="balanceCardText">
+                        <h5 class="lightText">Balance</h5>
+                        <h2 class="lightText">$560</h2>
+                    </div>
+                    <h2 class="lightText">Logo</h2>
+                </div>
+                <div class="accountDetailsCard cardRadius">
+                    <h3 class="lightText">Account Details</h3>
+                    <!--                    <svg th:src="@{/images/user.svg}" id="icons">-->
+                    <svg xmlns="http://www.w3.org/2000/svg" id="icons" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+
+                </div>
+                <div class="accountDetailsCard cardRadius">
+                    <h3 class="lightText">Personal Documents</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="icons" width="24" height="24" viewBox="0 0 24 24"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                </div>
+            </div>
+            <div class="middleContentRow">
+                <div class="balanceGraph cardRadius">
+                    <h1 style="color: white">Title</h1>
+                </div>
+                <div class="paymentCard cardRadius">
+                    <div class="paymentCardTopRow">
+                        <div class="paymentCardMetrics">
+                            <h6>Loan Amount</h6>
+                            <h3>$25</h3>
+                        </div>
+                        <div class="paymentCardMetrics">
+                            <h6>Payment Due</h6>
+                            <h3>$25</h3>
+                        </div>
+                        <div class="paymentCardMetrics">
+                            <h6>Date</h6>
+                            <h3>Feb 16</h3>
+                        </div>
+                    </div>
+                    <div class="paymentCardLogo">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="payIconDetails" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <div class="paymentCardCurrentLoanDetails">
+                        <h3 style="font-weight: bold">Car: &nbsp;</h3>
+                        <h3 style="font-weight: lighter">3 days</h3>
+                    </div>
+                    <div class="paymentCardButtons">
+                        <button class="secondaryButton">Support</button>
+                        <button class="primaryButton">Payment</button>
+                    </div>
+
+                </div>
+                <div class="currentLoansList">
+                    <div class="loanStatusCard cardRadius">
+                        <div class="loanStatusTopRow">
+                            <h3>Car</h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" id="icons-sm" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <div class="loanStatusSecondRow">
+                            <h5>Application is pending...</h5>
+                        </div>
+                    </div>
+                    <div class="loanStatusCard cardRadius">
+                        <div class="loanStatusTopRow">
+                            <h3>Car</h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" id="icons-sm" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <div class="loanStatusSecondRow">
+                            <h5>Application is pending...</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomContentRow">
+                <div class="transactionCard cardRadius">
+                    <h2>Transactions</h2>
+                    <h5>Nice</h5>
+                </div>
+                <div class="contentCard cardRadius">
+                    <h2>Content</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+</footer>
+<script th:src="@{/js/scripts.js}"></script>
+</body>
+</html>

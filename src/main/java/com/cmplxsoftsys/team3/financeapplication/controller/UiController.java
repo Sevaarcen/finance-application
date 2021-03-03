@@ -36,4 +36,22 @@ public class UiController {
     public String getCreateAccountPage() {
         return "index";
     }
+
+    /**
+     * This method renders and sends the HTML of the Dashboard Page View
+     */
+    @GetMapping("/dashboard")
+    public String getDashboard() { return "dashboard";}
+
+    /**
+     * This method renders and sends the HTML of the Sign In View
+     */
+    @GetMapping("/signin")
+    public String getSignIn() { return "signin";}
+
+    /**
+     * This method renders and sends the HTML of the Sign Up View
+     */
+    @GetMapping("/signup")
+    public String getSignUn() { return "signup";}
 }
