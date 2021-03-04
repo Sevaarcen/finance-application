@@ -2,13 +2,14 @@ package com.cmplxsoftsys.team3.financeapplication.controllertests;
 
 import com.cmplxsoftsys.team3.financeapplication.controller.AuthController;
 import com.cmplxsoftsys.team3.financeapplication.model.User;
-import com.cmplxsoftsys.team3.financeapplication.security.service.UserDetailsImpl;
+import com.cmplxsoftsys.team3.financeapplication.repository.UserRepository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.cookie;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+
+import java.util.Optional;
+
 import org.mockito.Mockito;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -18,12 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.MediaType;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -33,18 +29,11 @@ import org.springframework.web.context.WebApplicationContext;
 
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class AuthenticationTests {
 
     @Autowired
     private AuthController controller;
-
-    @Autowired
-    private PasswordEncoder encoder;
-
-    // for making sure we can communicate with how server is configured
-    @LocalServerPort
-	private int port;
     
     @Autowired
     private WebApplicationContext context;
@@ -52,8 +41,11 @@ public class AuthenticationTests {
     // for mocking and testing
     private MockMvc mvc;
     
+    @MockBean
+    UserRepository repository;
+    
     @Autowired
-    AuthenticationManager authenticationManager;
+    PasswordEncoder encoder;
 
 
     @BeforeEach
@@ -64,41 +56,56 @@ public class AuthenticationTests {
           .build();
     }
 
+
     @Test
     public void contextLoads() throws Exception {
         assertThat(controller).isNotNull();
     }
 
+
     @Test
-    public void successfullyPerformLogin_UsingCreds() throws Exception {
-        String endpoint = "/api/auth/signin";
+    public void unauthenticatedUserCanSuccessfullySignUpForAccount_AccountSuccessfullyCreated() throws Exception {
+        String endpoint = "/api/auth/signup";
 
-        String testUsername = "testuser";
-        String testPassword = "testpass";
-        String encodedPassword = encoder.encode(testPassword);
+        String testUsername = "nonexaccount";
+        String testPassword = "this_does_not_matter";
+        String testEmail = "nonex@test.example.com";
 
-
-        String payload = String.format("{\"username\": \"%s\", \"password\": \"%s\"}", testUsername, testPassword);
-
-        Authentication fakeAuth = new UsernamePasswordAuthenticationToken(testUsername, testPassword);
-        Authentication spyAuth = Mockito.spy(fakeAuth);
-        User mockUser = new User(testUsername, encodedPassword, "test@example.com", "testFirstname", "testLastname", "123 fake street, fake town, NA 12345");
-        UserDetailsImpl mockPrincipal = UserDetailsImpl.build(mockUser);
-
-
-        // Mock user auth so it always thinks the password is the same as testPassword
-        AuthenticationManager spyAuthManager = Mockito.spy(authenticationManager);
-        Mockito.when(spyAuthManager.authenticate(Mockito.any())).thenReturn(spyAuth);
-        Mockito.when(spyAuth.getPrincipal()).thenReturn(mockPrincipal);
+        // request to be matched with user below
+        String payload = String.format("{\"username\": \"%s\", \"password\": \"%s\", \"email\": \"%s\", \"firstName\": \"Tommy\", \"lastName\": \"Tester\", \"address\": \"123 fake street\"}", testUsername, testPassword, testEmail);
 
         this.mvc.perform(
             post(endpoint)
             .contentType(MediaType.APPLICATION_JSON)
             .content(payload)
-        ).andExpect(status().isOk())
-        .andDo(print());
+        ).andExpect(status().isOk());
+
+        // also double check the user would have been written to DB
+        Mockito.verify(repository).save(Mockito.any());
     }
 
     
-    
+    @Test
+    public void successfullyPerformLogin_UsingCreds() throws Exception {
+        String endpoint = "/api/auth/signin";
+
+        String testUsername = "testacc";
+        String testPassword = "tester";
+
+        String payload = String.format("{\"username\": \"%s\", \"password\": \"%s\"}", testUsername, testPassword);
+
+        // when auth checks if user is valid, return our test user
+        User fakeUser = new User(testUsername, encoder.encode(testPassword), "tester@example.com", "Tommy", "Tester", "fake street");
+        Optional<User> fakeRepoReturn = Optional.of(fakeUser);
+        Mockito.when(repository.findByUsername(testUsername)).thenReturn(fakeRepoReturn);
+
+        // perform sign in request using the controller logic
+        this.mvc.perform(
+            post(endpoint)
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(payload)
+        ).andExpect(status().isOk());
+
+        //TODO once we have cookie set correctly, test that it would be set as well
+    }
 }

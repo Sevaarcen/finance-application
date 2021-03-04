@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -23,20 +22,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class UiControllerTests {
     @Autowired
     private UiController controller;
-
-    // for making sure we can communicate with how server is configured
-    @LocalServerPort
-	private int port;
     
     @Autowired
     private WebApplicationContext context;
 
     private MockMvc mvc;
 
+    
     @BeforeEach
     public void setup() {
         this.mvc = MockMvcBuilders
@@ -44,6 +40,7 @@ public class UiControllerTests {
           .apply(SecurityMockMvcConfigurers.springSecurity())
           .build();
     }
+
 
     /**
      * This function tests that the controller can be instantiated correctly.
@@ -54,11 +51,13 @@ public class UiControllerTests {
         assertThat(controller).isNotNull();
     }
 
+
     @Test
     public void indexRequestReturnsOk_NoAuthReq() throws Exception {
         String endpoint = "/";
         mvc.perform(get(endpoint)).andExpect(status().isOk());
     }
+
 
     @Test
     public void loginPageReqestReturnsValid_NoAuthReq() throws Exception {
@@ -66,11 +65,13 @@ public class UiControllerTests {
         mvc.perform(get(endpoint)).andExpect(status().isOk());
     }
 
+
     @Test
     public void accountDashboardRequestFails_Unauthorized_NoAuth() throws Exception {
         String endpoint = "/account";
         mvc.perform(get(endpoint)).andExpect(status().is4xxClientError());
     }
+
 
     @WithMockUser("moderator")
     @Test
