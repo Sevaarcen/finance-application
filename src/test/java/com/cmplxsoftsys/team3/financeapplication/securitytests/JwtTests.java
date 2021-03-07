@@ -9,6 +9,7 @@ import com.cmplxsoftsys.team3.financeapplication.model.User;
 import com.cmplxsoftsys.team3.financeapplication.repository.UserRepository;
 import com.cmplxsoftsys.team3.financeapplication.security.jwt.JwtUtils;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -21,6 +22,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import io.jsonwebtoken.ExpiredJwtException;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -38,21 +41,27 @@ public class JwtTests {
     @Autowired
     JwtUtils jwtUtils;
 
+    private String testJwtUsername = "testUser";
+
+    private Authentication validAuth;
+    private String validJwt;
+
+    @BeforeEach
+    public void setup() {
+        String testPassword = "testPassword";
+        
+        User fakeUser = new User(testJwtUsername, encoder.encode(testPassword), "tester@example.com", "Tommy", "Tester", "fake street");
+        Optional<User> fakeRepoReturn = Optional.of(fakeUser);
+        Mockito.when(repository.findByUsername(testJwtUsername)).thenReturn(fakeRepoReturn);
+
+        validAuth = authManager.authenticate(new UsernamePasswordAuthenticationToken(testJwtUsername, testPassword));
+        validJwt = jwtUtils.generateJwtToken(validAuth);
+    }
+
     
     @Test
     public void forValidAuthenticationJWTIsSuccessfullyGenerated() throws Exception {
-        String testUsername = "testUser";
-        String testPassword = "testPassword";
-        
-        User fakeUser = new User(testUsername, encoder.encode(testPassword), "tester@example.com", "Tommy", "Tester", "fake street");
-        Optional<User> fakeRepoReturn = Optional.of(fakeUser);
-        Mockito.when(repository.findByUsername(testUsername)).thenReturn(fakeRepoReturn);
-
-        Authentication auth = authManager.authenticate(new UsernamePasswordAuthenticationToken(testUsername, testPassword));
-
-        String jwt = jwtUtils.generateJwtToken(auth);
-        System.out.println(jwt);
-        assertThat(jwt).isNotNull();
+        assertThat(validJwt).isNotNull();
     }
 
 
@@ -68,17 +77,14 @@ public class JwtTests {
 
     @Test
     public void usernameCanBeParsedFromCorrectlyFormattedJWT() throws Exception {
-        String testUsername = "testUser";
-        String testJWT = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0VXNlciIsImlhdCI6MTYxNDg3ODE5OCwiZXhwIjoxNjE0OTY0NTk4fQ.1-z4_u5uJ-KdrutUV0pB_86LjUTZTTxY86BFe7UTVD4ZAQjWCWZLBK-kaNJ5sUqwuBppOD9tXreQ561FtbCICQ";
-        String result = jwtUtils.getUserNameFromJwtToken(testJWT);
-        assertThat(result).isEqualTo(testUsername);
+        String result = jwtUtils.getUserNameFromJwtToken(validJwt);
+        assertThat(result).isEqualTo(testJwtUsername);
     }
 
     
     @Test
     public void correctlyFormattedJWTIsSuccessfullyValidated() throws Exception {
-        String testJWT = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0VXNlciIsImlhdCI6MTYxNDg3ODE5OCwiZXhwIjoxNjE0OTY0NTk4fQ.1-z4_u5uJ-KdrutUV0pB_86LjUTZTTxY86BFe7UTVD4ZAQjWCWZLBK-kaNJ5sUqwuBppOD9tXreQ561FtbCICQ";
-        boolean valid = jwtUtils.validateJwtToken(testJWT);
+        boolean valid = jwtUtils.validateJwtToken(validJwt);
         assertThat(valid).isTrue();
     }
 
@@ -87,6 +93,13 @@ public class JwtTests {
     public void invalidFormattedJWTCorrectlyFailsValidation() throws Exception {
         String testJWT = "testing.this.isnt.a.jwt";
         boolean valid = jwtUtils.validateJwtToken(testJWT);
+        assertThat(valid).isFalse();
+    }
+
+    @Test
+    public void correctlyFormattedYetInvalidJWTIsCorrectlyIdentifiedAsExpired() throws Exception {
+        String expiredJwt = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0VXNlciIsImlhdCI6MTYxNDg3ODE5OCwiZXhwIjoxNjE0OTY0NTk4fQ.1-z4_u5uJ-KdrutUV0pB_86LjUTZTTxY86BFe7UTVD4ZAQjWCWZLBK-kaNJ5sUqwuBppOD9tXreQ561FtbCICQ";
+        boolean valid = jwtUtils.validateJwtToken(expiredJwt);
         assertThat(valid).isFalse();
     }
 }
