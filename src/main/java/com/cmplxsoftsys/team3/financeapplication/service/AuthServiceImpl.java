@@ -47,8 +47,8 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public ResponseEntity<?> authenticateUser(@Valid LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
-
+            new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword())
+        );
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
 
@@ -79,9 +79,14 @@ public class AuthServiceImpl implements AuthService {
         }
 
         // Create new user's account
-        User user = new User(signUpRequest.getUsername(),
+        User user = new User(
+                signUpRequest.getUsername(),
+                encoder.encode(signUpRequest.getPassword()),
                 signUpRequest.getEmail(),
-                encoder.encode(signUpRequest.getPassword()), signUpRequest.getFirstName(), signUpRequest.getLastName(), signUpRequest.getAddress());
+                signUpRequest.getFirstName(),
+                signUpRequest.getLastName(),
+                signUpRequest.getAddress()
+            );
 
         Set<String> strRoles = signUpRequest.getRoles();
         Set<Role> roles = new HashSet<>();

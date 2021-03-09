@@ -31,9 +31,14 @@ public class JwtUtils {
      * Creates the JWT
      *
      * @param authentication User's authentications
+     * @throws IllegalArgumentException If the authentication hasn't been completed and "Authenticated" is false
      * @return built JWT
      */
-    public String generateJwtToken(Authentication authentication) {
+    public String generateJwtToken(Authentication authentication) throws IllegalArgumentException {
+
+        if (!authentication.isAuthenticated()) {
+            throw new IllegalArgumentException("Authentication object provided is not completed -- auth required");
+        }
 
         //Creates a User Detail object with our custom authentications
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
