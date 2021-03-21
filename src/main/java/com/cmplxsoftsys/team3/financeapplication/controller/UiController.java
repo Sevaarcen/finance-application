@@ -34,7 +34,7 @@ public class UiController {
 
     @GetMapping("/account")
     public String getCreateAccountPage() {
-        return "index";
+        return "account";
     }
 
     /**
@@ -53,5 +53,17 @@ public class UiController {
      * This method renders and sends the HTML of the Sign Up View
      */
     @GetMapping("/signup")
-    public String getSignUn() { return "signup";}
+    public String getSignUp() { return "signup";}
+
+    /**
+     * This method renders and sends the HTML New Loan Application View
+     */
+    @GetMapping("/newLoan")
+    public String getNewLoan() { return "newLoan";}
+
+    /**
+     * This method renders and sends the HTML Banking View
+     */
+    @GetMapping("/banking")
+    public String getBanking() { return "banking";}
 }
