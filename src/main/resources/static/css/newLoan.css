@@ -183,63 +183,151 @@ h6 {
     padding: 20px;
 }
 
-.balanceGraph {
-    background: rgb(27,100,180);
-    background: linear-gradient(0deg, rgba(27,100,180,1) 0%, rgba(239,208,255,1) 100%);
+.loanAmountCard {
+    background: whitesmoke;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: inherit;
     flex: 2;
     margin: 0px 20px 0px 0px;
 }
 
-.paymentCard {
+.loanAmountTopRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.loanSliderContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loanSliderValue {
+    color: black;
+    background-color: white;
+    border-radius: 8px;
+    padding: 3px 30px;
+    margin-bottom: 10px;
+    font-weight: lighter;
+    -webkit-box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.62);
+    box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.62);
+}
+
+/*Source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_rangeslider_round*/
+#loanAmountSlider1 {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 2px;
+    border-radius: 5px;
+    background: #c399ff;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+#loanAmountSlider1::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: white;
+    width: 15px;
+    height: 15px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: #9b74c4;
+    cursor: pointer;
+}
+
+#loanAmountSlider1::-moz-range-thumb {
+    background: white;
+    width: 15px;
+    height: 15px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: #9B74C4;
+    cursor: pointer;
+}
+
+.loanAmountTopRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 40px;
+
+}
+
+.loanAmountMiddleRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 40px;
+}
+
+.loanOptionsList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    margin: 20px 2px;
+}
+
+.loanOptionCard {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 0px 5px;
+}
+
+.loanOptionCardTopRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.loanOptionCardBottomRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+}
+
+.loanAmountBottomRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 40px;
+}
+
+.loanSubmitButton {
+    background-color: darkslategray;
+    color: white;
+    border-radius: 8px;
+    border-color: transparent;
+    padding: 5px 20px;
+    outline: none;
+}
+
+.loanSubmitButton:hover {
+    cursor: pointer;
+}
+
+.personalInfoCard {
     background-color: whitesmoke;
     display: flex;
     flex-direction: column;
     flex: 1;
     margin: 0px 20px;
-}
-
-.paymentCardTopRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.paymentCardMetrics {
-    padding: 0px 20px;
-}
-
-.paymentCardLogo {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-#payIconDetails {
-    stroke: black;
-    fill: transparent;
-    width: 50px;
-    height: 50px;
-}
-
-.paymentCardCurrentLoanDetails {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.paymentCardButtons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
 }
 
 .primaryButton {
@@ -266,57 +354,4 @@ h6 {
 
 .secondaryButton:hover {
     cursor: pointer;
-}
-
-.currentLoansList {
-    display: flex;
-    flex-direction: column;
-    margin: 0px 20px;
-    flex: 0.5;
-}
-
-.loanStatusCard {
-    display: flex;
-    flex-direction: column;
-    background-color: whitesmoke;
-    margin-bottom: 10px;
-}
-
-.loanStatusCard > .loanStatusTopRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.loanStatusCard > .loanStatusSecondRow {
-    width: 80%;
-}
-
-.bottomContentRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
-
-.transactionCard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 2;
-    background-color: whitesmoke;
-    margin-right: 20px;
-}
-
-.contentCard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    background-color: gray;
-    margin: 0px 20px;
 }
