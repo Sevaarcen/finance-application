@@ -3,6 +3,7 @@ package com.cmplxsoftsys.team3.financeapplication.model;
 import org.springframework.data.annotation.Id;
 
 import java.util.Date;
+import java.util.StringJoiner;
 
 public class LoanApplication {
     @Id
@@ -56,5 +57,16 @@ public class LoanApplication {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", LoanApplication.class.getSimpleName() + "[", "]")
+                .add("id='" + id + "'")
+                .add("userId='" + userId + "'")
+                .add("type='" + type + "'")
+                .add("amount=" + amount)
+                .add("date=" + date)
+                .toString();
     }
 }

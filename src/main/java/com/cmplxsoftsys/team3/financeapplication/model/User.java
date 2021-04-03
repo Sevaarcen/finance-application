@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.StringJoiner;
 
 /**
  * import javax.validation.constraints.Email;
@@ -150,5 +151,19 @@ public class User {
      */
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", User.class.getSimpleName() + "[", "]")
+                .add("id='" + id + "'")
+                .add("username='" + username + "'")
+                .add("email='" + email + "'")
+                .add("password='" + password + "'")
+                .add("firstName='" + firstName + "'")
+                .add("lastName='" + lastName + "'")
+                .add("address='" + address + "'")
+                .add("roles=" + roles)
+                .toString();
     }
 }
