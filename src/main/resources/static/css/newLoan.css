@@ -188,18 +188,18 @@ h6 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: inherit;
+    /*align-items: inherit;*/
     flex: 2;
     margin: 0px 20px 0px 0px;
 }
 
-.loanAmountTopRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+/*.loanAmountTopRow {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-evenly;*/
+/*    align-items: center;*/
 
-}
+/*}*/
 
 .loanSliderContainer {
     display: flex;
@@ -268,7 +268,7 @@ h6 {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 0px 40px;
+    margin: 0px 30px;
 }
 
 .loanOptionsList {
@@ -282,14 +282,24 @@ h6 {
 .loanOptionCard {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     margin: 0px 5px;
+    outline: none;
+}
+
+.loanOptionCard:hover {
+    cursor: pointer;
+    border-color: #9370db;
+    border-width: 2px;
+    box-shadow: none;
 }
 
 .loanOptionCardTopRow {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -301,12 +311,23 @@ h6 {
     width: 5rem;
 }
 
+.loanTypeSelected {
+    box-shadow: 0 0 0 2px #9370db;
+}
+
 .loanAmountBottomRow {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin: 0px 40px;
+}
+
+.tenureContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .loanSubmitButton {
@@ -322,12 +343,97 @@ h6 {
     cursor: pointer;
 }
 
+.monthGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15%, 1fr));
+    /*grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));*/
+    gap: 8px 8px;
+    grid-template-areas:
+    ". . . . . ."
+    ". . . . . .";
+    padding: 8px;
+    /*https://grid.layoutit.com/*/
+    /*    https://medium.com/@Snehil_/creating-responsive-grids-of-flexible-square-cards-without-css-media-queries-3ee104f0e597*/
+}
+
+.monthcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 4px;
+    outline: none;
+    border-radius: 8px;
+    border-width: 2px;
+}
+
+.monthcard:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 2px #9370db;
+
+}
+
+.monthCardSelected {
+    box-shadow: 0 0 0 2px #24e356;
+    border-color: transparent;
+}
+
+
 .personalInfoCard {
     background-color: whitesmoke;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex: 1;
     margin: 0px 20px;
+}
+
+.personalInfoCardTopRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.personalInfoImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: red;
+    min-width: 50px;
+    max-width: 50px;
+    margin-left: 10px;
+}
+
+.personalInformationMiddleRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loanGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    /*grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));*/
+    gap: 8px 8px;
+    grid-template-areas:
+    ". ."
+    ". .";
+    padding: 8px;
+}
+
+.loanInfoButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin: 0px 5px;
+    outline: none;
 }
 
 .primaryButton {

@@ -96,6 +96,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/index.html").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/actuator/**").permitAll()
+                .antMatchers("/dashboard").permitAll()
+                .antMatchers("/newLoan").permitAll()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 .anyRequest().authenticated();
 
