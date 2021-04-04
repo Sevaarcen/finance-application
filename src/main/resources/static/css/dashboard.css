@@ -53,6 +53,11 @@ h6 {
     height: 30px;
 }
 
+#myProfileLink {
+    color: mediumpurple;
+    text-decoration: none
+}
+
 .cardRadius {
     border-radius: 8px;
     -webkit-box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.62);
@@ -79,6 +84,13 @@ h6 {
     display: flex;
     flex-direction: column;
     justify-content: start;
+}
+
+.navbarLinksButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .navbarLinks {
@@ -319,4 +331,164 @@ h6 {
     flex: 1;
     background-color: gray;
     margin: 0px 20px;
+}
+
+@media only screen
+and (min-device-width: 300px)
+and (max-device-width: 800px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .navbar {
+        flex-direction: column;
+        background-color: #9370db;
+    }
+
+    .navbar > .navbarLinksContainer > .navbarLinksButton {
+        margin: 30px 10px;
+    }
+
+    .navbarLinksButton > a > h2 {
+        font-size: medium;
+    }
+
+    #userName {
+        font-size: x-large;
+    }
+
+    #myProfileLink {
+        color: white;
+        font-size: large;
+    }
+
+    .navbarLinksContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .navbarLinksButton {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        border-radius: 8px;
+        background-color: white;
+    }
+
+    .navbarLinks {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        /*border: 1px solid black;*/
+        /*border-radius: 8px;*/
+        /*background-color: white;*/
+    }
+
+    #dashboardTitle {
+        font-size: medium;
+    }
+
+    #accountTitle {
+        font-size: medium;
+    }
+
+    #bankingTitle {
+        font-size: medium;
+    }
+
+    .navbarButtons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbarButtons > a {
+        padding: 0px 5px;
+    }
+
+    .navbarButton {
+        padding: 10px 30px;
+        font-size: medium;
+    }
+
+    .dashboardView {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .titleRow {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .titleContainer {
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .titleContainer > h5 {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        text-align: center;
+    }
+
+    .balanceCard {
+        margin: 5px;
+    }
+
+    .accountDetailsCard {
+        margin: 5px;
+    }
+
+    .middleContentRow {
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+    }
+
+    .paymentCard {
+        margin: 30px 0px;
+    }
+
+    .balanceGraph {
+        margin: 0px;
+    }
+
+    .paymentCardTopRow {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .bottomContentRow {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .transactionCard {
+        margin: 20px 0px;
+    }
+
 }
