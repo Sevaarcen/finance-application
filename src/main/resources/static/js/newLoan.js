@@ -96,3 +96,21 @@ function setMonthCardClicked12() {
     var monthclicked = document.getElementById("monthCard12");
     monthclicked.classList.toggle("monthCardSelected");
 }
+
+
+function submitLoanApplication() {
+    //Loan Amount
+    console.log(document.getElementById("loanAmountSlider1").value);
+
+    //Loan Type
+
+    if (document.getElementsByClassName("loanTypeSelected").length == 0) {
+        alert("No Loan Type Selected");
+    } else {
+        console.log(document.getElementsByClassName("loanTypeSelected")[0].value)
+    }
+
+    //Tenure
+    console.log(document.getElementById("points").value)
+
+}

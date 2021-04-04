@@ -93,7 +93,7 @@
                         </div>
 
                         <div class="loanOptionsList">
-                            <button class="loanOptionCard cardRadius" id="carLoanCard" onclick="setCarLoanSelected()">
+                            <button class="loanOptionCard cardRadius" id="carLoanCard" value="Car" onclick="setCarLoanSelected()">
                                 <div class="loanOptionCardTopRow">
                                     <h4>Car</h4>
                                     <svg id="icons-sm" xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" preserveAspectRatio="xMinYMin" class="icon__icon"><path d="M14 17H6v1.5A1.5 1.5 0 0 1 4.5 20h-1A1.5 1.5 0 0 1 2 18.5v-1.67A3.001 3.001 0 0 1 0 14v-3c0-.62.188-1.196.51-1.674l1.086-6.8A3 3 0 0 1 4.56 0h10.88A3 3 0 0 1 18.4 2.527l1.083 6.79c.326.48.516 1.06.516 1.683v3a3.001 3.001 0 0 1-2 2.83v1.67a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5V17zm3.25-8.99l-.824-5.168A1 1 0 0 0 15.44 2H4.559a1 1 0 0 0-.988.842l-.825 5.169A3.04 3.04 0 0 1 3 8h14c.084 0 .168.003.25.01zM15.5 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-11 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm.704-10.906a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z"></path></svg>
@@ -102,7 +102,7 @@
                                     <h5 style="font-weight: lighter">Loan for Vehicles</h5>
                                 </div>
                             </button>
-                            <button class="loanOptionCard cardRadius" id="personalLoanCard" onclick="setPersonalLoanSelected()">
+                            <button class="loanOptionCard cardRadius" id="personalLoanCard" value="Personal" onclick="setPersonalLoanSelected()">
                                 <div class="loanOptionCardTopRow">
                                     <h4>Personal</h4>
                                     <svg id="icons-sm" xmlns="http://www.w3.org/2000/svg" viewBox="-2 -5 24 24" preserveAspectRatio="xMinYMin" class="icon__icon"><path d="M2 0h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 2v10h16V2H2zm9 2h5a1 1 0 0 1 0 2h-5a1 1 0 0 1 0-2zm0 3h5a1 1 0 0 1 0 2h-5a1 1 0 0 1 0-2zM4 4h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"></path></svg>
@@ -111,7 +111,7 @@
                                     <h5 style="font-weight: lighter">Loan for Personal Use</h5>
                                 </div>
                             </button>
-                            <button class="loanOptionCard cardRadius" id="projectLoanCard" onclick="setProjectLoanSelected()">
+                            <button class="loanOptionCard cardRadius" id="projectLoanCard" value="Project" onclick="setProjectLoanSelected()">
                                 <div class="loanOptionCardTopRow">
                                     <h4>Project</h4>
                                     <svg id="icons-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
@@ -120,7 +120,7 @@
                                     <h5 style="font-weight: lighter">Loan for Personal Projects</h5>
                                 </div>
                             </button>
-                            <button class="loanOptionCard cardRadius" id="businessLoanCard" onclick="setBusinessLoanSelected()">
+                            <button class="loanOptionCard cardRadius" id="businessLoanCard" value="Business" onclick="setBusinessLoanSelected()">
                                 <div class="loanOptionCardTopRow">
                                     <h4>Business</h4>
                                     <svg id="icons-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
@@ -129,7 +129,7 @@
                                     <h5 style="font-weight: lighter">Loan for Business</h5>
                                 </div>
                             </button>
-                            <button class="loanOptionCard cardRadius" id="renovateLoanCard" onclick="setRenovateLoanSelected()">
+                            <button class="loanOptionCard cardRadius" id="renovateLoanCard" value="Renovate" onclick="setRenovateLoanSelected()">
                                 <div class="loanOptionCardTopRow">
                                     <h4>Renovate</h4>
                                     <svg id="icons-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tool"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
@@ -145,58 +145,62 @@
                             <h2>Tenure</h2>
                             <h5>Select the collateral term length in months</h5>
                         </div>
-                        <div class="monthGrid">
-                            <button class="monthcard" id="monthCard" onclick="setMonthCardClicked()">
-                                <h5>Jan</h5>
-
-                            </button>
-                            <button class="monthcard" id="monthCard2" onclick="setMonthCardClicked2()">
-                                <h5>Feb</h5>
-
-                            </button>
-                            <button class="monthcard" id="monthCard3" onclick="setMonthCardClicked3()">
-                                <h5>Mar</h5>
-
-                            </button>
-                            <button class="monthcard" id="monthCard4" onclick="setMonthCardClicked4()">
-                                <h5>Apr</h5>
-
-                            </button>
-                            <button class="monthcard" id="monthCard5" onclick="setMonthCardClicked5()">
-                                <h5>May</h5>
-
-                            </button>
-                            <button class="monthcard" id="monthCard6" onclick="setMonthCardClicked6()">
-                                <h5>Jun</h5>
-
-                            </button>
-                            <button class="monthcard" id="monthCard7" onclick="setMonthCardClicked7()">
-                                <h5>Jul</h5>
-
-                            </button>
-                            <button class="monthcard" id="monthCard8" onclick="setMonthCardClicked8()">
-                                <h5>Aug</h5>
-
-                            </button>
-                            <button class="monthcard" id="monthCard9" onclick="setMonthCardClicked9()">
-                                <h5>Sept</h5>
-
-                            </button>
-                            <button class="monthcard" id="monthCard10" onclick="setMonthCardClicked10()">
-                                <h5>Oct</h5>
-
-                            </button>
-                            <button class="monthcard" id="monthCard11" onclick="setMonthCardClicked11()">
-                                <h5>Nov</h5>
-
-                            </button>
-                            <button class="monthcard" id="monthCard12" onclick="setMonthCardClicked12()">
-                                <h5>Dec</h5>
-
-                            </button>
-
+                        <div class="tenureLength">
+                            <label for="points">Number of Months:</label>
+                            <input type="number" id="points" name="points" step="1">
                         </div>
-                        <button class="loanSubmitButton">Submit!</button>
+<!--                        <div class="monthGrid">-->
+<!--                            <button class="monthcard" id="monthCard" value="January" onclick="setMonthCardClicked()">-->
+<!--                                <h5>Jan</h5>-->
+
+<!--                            </button>-->
+<!--                            <button class="monthcard" id="monthCard2" value="February" onclick="setMonthCardClicked2()">-->
+<!--                                <h5>Feb</h5>-->
+
+<!--                            </button>-->
+<!--                            <button class="monthcard" id="monthCard3" value="March" onclick="setMonthCardClicked3()">-->
+<!--                                <h5>Mar</h5>-->
+
+<!--                            </button>-->
+<!--                            <button class="monthcard" id="monthCard4" value="April" onclick="setMonthCardClicked4()">-->
+<!--                                <h5>Apr</h5>-->
+
+<!--                            </button>-->
+<!--                            <button class="monthcard" id="monthCard5" value="May" onclick="setMonthCardClicked5()">-->
+<!--                                <h5>May</h5>-->
+
+<!--                            </button>-->
+<!--                            <button class="monthcard" id="monthCard6" value="June" onclick="setMonthCardClicked6()">-->
+<!--                                <h5>Jun</h5>-->
+
+<!--                            </button>-->
+<!--                            <button class="monthcard" id="monthCard7" value="July" onclick="setMonthCardClicked7()">-->
+<!--                                <h5>Jul</h5>-->
+
+<!--                            </button>-->
+<!--                            <button class="monthcard" id="monthCard8" value="August" onclick="setMonthCardClicked8()">-->
+<!--                                <h5>Aug</h5>-->
+
+<!--                            </button>-->
+<!--                            <button class="monthcard" id="monthCard9" value="September" onclick="setMonthCardClicked9()">-->
+<!--                                <h5>Sept</h5>-->
+
+<!--                            </button>-->
+<!--                            <button class="monthcard" id="monthCard10" value="October" onclick="setMonthCardClicked10()">-->
+<!--                                <h5>Oct</h5>-->
+
+<!--                            </button>-->
+<!--                            <button class="monthcard" id="monthCard11" value="November" onclick="setMonthCardClicked11()">-->
+<!--                                <h5>Nov</h5>-->
+
+<!--                            </button>-->
+<!--                            <button class="monthcard" id="monthCard12" value="December" onclick="setMonthCardClicked12()">-->
+<!--                                <h5>Dec</h5>-->
+
+<!--                            </button>-->
+
+<!--                        </div>-->
+                        <button class="loanSubmitButton" onclick="submitLoanApplication()">Submit!</button>
                     </div>
                 </div>
                 <div class="personalInfoCard cardRadius">
@@ -227,6 +231,6 @@
 </main>
 <footer>
 </footer>
-<script th:src="@{/js/scripts.js}"></script>
+<script th:src="@{/js/newLoan.js}"></script>
 </body>
 </html>
