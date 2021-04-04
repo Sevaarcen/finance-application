@@ -19,14 +19,6 @@ public class UiController {
         return "index";
     }
 
-    /**
-     * This method renders and sends the HTML of the Login Page view
-     */
-
-    @GetMapping("/login")
-    public String getLoginPage() {
-        return "index";
-    }
 
     /**
      * This method renders and sends the HTML of the Create Account Page view
