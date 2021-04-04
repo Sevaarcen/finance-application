@@ -53,6 +53,23 @@ h6 {
     height: 30px;
 }
 
+#userImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: red;
+    margin-top: 20px
+}
+
+#userName {
+
+}
+
+#myProfileLink {
+    color: mediumpurple;
+    text-decoration: none
+}
+
 .cardRadius {
     border-radius: 8px;
     -webkit-box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.62);
@@ -79,6 +96,13 @@ h6 {
     display: flex;
     flex-direction: column;
     justify-content: start;
+}
+
+.navbarLinksButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .navbarLinks {
@@ -271,6 +295,22 @@ h6 {
     margin: 0px 30px;
 }
 
+.loanTypeTitleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.loanTypeTitleContainer > h5 {
+    align-self: center;
+    font-weight: lighter;
+    max-width: 100%;
+    text-align: center;
+    /*padding-left: 20px;*/
+}
+
 .loanOptionsList {
     display: flex;
     flex-direction: row;
@@ -328,6 +368,11 @@ h6 {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+}
+
+.tenureContainer > h5 {
+    font-weight: lighter;
+    max-width: 100px;
 }
 
 .loanSubmitButton {
@@ -460,4 +505,342 @@ h6 {
 
 .secondaryButton:hover {
     cursor: pointer;
+}
+
+
+/*Mobile CSS*/
+
+@media only screen
+and (min-device-width: 300px)
+and (max-device-width: 800px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .navbar {
+        flex-direction: column;
+        background-color: #9370db;
+    }
+
+    .navbar > .navbarLinksContainer > .navbarLinksButton {
+        margin: 30px 10px;
+    }
+
+    #userName {
+        font-size: x-large;
+    }
+
+    #myProfileLink {
+        color: white;
+        font-size: large;
+    }
+
+    .navbarLinksContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .navbarLinksButton {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        border-radius: 8px;
+        background-color: white;
+    }
+
+    .navbarLinks {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        /*border: 1px solid black;*/
+        /*border-radius: 8px;*/
+        /*background-color: white;*/
+    }
+
+    #dashboardTitle {
+        font-size: medium;
+    }
+
+    #accountTitle {
+        font-size: medium;
+    }
+
+    #bankingTitle {
+        font-size: medium;
+    }
+
+    .navbarButtons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbarButtons > a {
+        padding: 0px 5px;
+    }
+
+    .navbarButton {
+        padding: 10px 30px;
+        font-size: medium;
+    }
+
+    .dashboardView {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .titleRow {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .titleContainer {
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .titleContainer > h5 {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        text-align: center;
+    }
+
+    .balanceCard {
+        margin: 5px;
+    }
+
+    .accountDetailsCard {
+        margin: 5px;
+    }
+
+    .middleContentRow {
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+    }
+
+    .loanAmountCard {
+        margin: 0px 0px 30px 0px;
+    }
+
+    .loanAmountTopRow {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: xx-large;
+    }
+
+    .loanAmountMiddleRow {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .loanAmountMiddleRow > h2 {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+    }
+
+    .loanSliderValue {
+        margin-bottom: 20px;
+    }
+
+    #loanAmountSlider1 {
+        height: 20px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+
+    #loanAmountSlider1::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        background: white;
+        width: 30px;
+        height: 30px;
+        margin-bottom: 0px;
+        border-radius: 50%;
+        background: #9b74c4;
+        cursor: pointer;
+    }
+
+    #loanAmountSlider1::-moz-range-thumb {
+        background: white;
+        width: 30px;
+        height: 30px;
+        margin-bottom: 0px;
+        border-radius: 50%;
+        background: #9B74C4;
+        cursor: pointer;
+    }
+
+    .loanTypeTitleContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        /*width: 80%;*/
+    }
+
+    .loanTypeTitleContainer > h5 {
+        align-self: center;
+        font-weight: lighter;
+        max-width: 100%;
+        text-align: center;
+        /*padding-left: 20px;*/
+    }
+
+    .loanOptionsList {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+        /*grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));*/
+        gap: 8px 8px;
+        grid-template-areas:
+    ". ."
+    ". ."
+    ".";
+        width: 100%;
+    }
+
+    .loanOptionCardTopRow {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loanOptionCardTopRow > h4 {
+        font-size: large;
+        font-weight: lighter;
+    }
+
+    .loanOptionCardBottomRow > h5 {
+        font-size: medium;
+        font-weight: lighter;
+    }
+
+    .loanAmountBottomRow {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .tenureContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+    }
+
+    .tenureContainer > h5 {
+        font-weight: lighter;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .monthGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+        /*grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));*/
+        gap: 8px 8px;
+        grid-template-areas:
+        ". . . ."
+        ". . . ."
+        ". . . .";
+        padding: 8px;
+        width: 100%;
+        /*https://grid.layoutit.com/*/
+        /*    https://medium.com/@Snehil_/creating-responsive-grids-of-flexible-square-cards-without-css-media-queries-3ee104f0e597*/
+    }
+
+    .monthcard > h5 {
+        font-size: medium;
+        font-weight: lighter;
+    }
+
+
+    .loanSubmitButton {
+        margin-top: 10px;
+        padding: 10px 40px;
+        font-size: x-large;
+    }
+
+
+
+    .personalInfoCard {
+        margin: 0px;
+        background-color: #efd9ef;
+    }
+
+    .personalInfoCardTopRow {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .personalInfoImage {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        min-width: 100px;
+        max-width: 100px;
+        margin-left: 0px;
+    }
+
+    .personalInformationMiddleRow {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .loanGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+        /*grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));*/
+        gap: 8px 8px;
+        grid-template-areas:
+    ". ."
+    ". .";
+        /*padding: 8px;*/
+        width: 70%;
+    }
+
+    .loanInfoButton > h4 {
+        font-size: medium;
+        font-weight: lighter;
+    }
 }

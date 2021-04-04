@@ -163,3 +163,157 @@ h5 {
     height: 24px;
     stroke: white;
 }
+
+
+
+/*Mobile CSS*/
+
+@media only screen
+and (min-device-width: 300px)
+and (max-device-width: 830px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+
+    html {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 100vh;
+        height: 100vh;
+    }
+
+    body {
+        font-family: "Leelawadee UI";
+
+        /*height: 100vh;*/
+        /*width: 100vh;*/
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        overflow: hidden;
+    }
+
+    body > main {
+
+    }
+
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        height: 100%;
+        width: 100%;
+        /*https://rajatamil.medium.com/css-make-a-div-full-screen-402f9a935d15*/
+    }
+
+    h1 {
+        color: white;
+        font-size: 90px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    h5 {
+        color: white;
+        font-size: x-large;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .buttonContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20%;
+    }
+
+    .signUpButton {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #103e10;
+        border-radius: 0px;
+        border-width: 1px;
+        color: white;
+        padding: 40px 80%;
+        white-space: nowrap;
+        margin: 20px 0px;
+        outline: none;
+        font-size: xxx-large;
+    }
+
+    .loginButton {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: whitesmoke;
+        border-radius: 0px;
+        border-width: 1px;
+        color: #103e10;
+        font-weight: bold;
+        padding: 40px 92%;
+        margin: 5px 0px;
+        outline: none;
+        font-size: xxx-large;
+    }
+
+    /*https://stackoverflow.com/questions/917610/put-icon-inside-input-element-in-a-form*/
+    .signInInputUsername {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-indent: 10%;
+        font-size: 40px;
+
+        background: white url("../images/user.svg") no-repeat scroll 10px 10px;
+        background-size: 40px 40px;
+    }
+
+    .signInInputPassword {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-indent: 10%;
+        font-size: 40px;
+
+        background: white url("../images/lock.svg") no-repeat scroll 10px 10px;
+        background-size: 40px 40px;
+    }
+
+    .signInButtonContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0px;
+    }
+
+    .signInButton {
+
+        font-size: xx-large;
+    }
+
+    .forgotPassword {
+        color: white;
+        font-size: larger;
+    }
+
+    .socialIconsContainer {
+        margin-top: 10%;
+    }
+
+    #socialIconsSm {
+        width: 60px;
+        height: 60px;
+        stroke: white;
+    }
+
+}
