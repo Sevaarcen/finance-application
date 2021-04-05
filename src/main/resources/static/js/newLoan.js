@@ -113,4 +113,28 @@ function submitLoanApplication() {
     //Tenure
     console.log(document.getElementById("points").value)
 
+    var newLoan = {
+        'type': document.getElementByID('loanTypeSelected'),
+        'value': document.getElementByID('loanAmountSlider1'),
+        'tenure': document.getElementByID('tenure'),
+        'userID': localStorage.getItem('id')
+    };
+    //API call to post this new loan application to the loan application database
+    $.ajax({
+        url: '/api/loan/request',
+        type: "POST",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(newLoan),
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Authorization', localStorage.getItem('AuthorizationHeader'));
+        },
+        success: function (result) {
+            console.log("Successfully submitted!");
+            location.reload();
+        },
+        error: function (xhr, resp, text) {
+            console.log(xhr, resp, text);
+        }
+    })
 }
