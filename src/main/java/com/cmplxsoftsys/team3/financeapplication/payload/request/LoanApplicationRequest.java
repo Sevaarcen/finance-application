@@ -9,9 +9,9 @@ public class LoanApplicationRequest {
 
     @Id
     private String loanApplicationId;
-    private double loanAmount;
+    private double amount;
     private String userId;
-
+    private int tenure;
     private String type;
 
 
@@ -30,8 +30,8 @@ public class LoanApplicationRequest {
      *
      * @return amount of USD being requested
      */
-    public double getLoanAmount() {
-        return this.loanAmount;
+    public double getAmount() {
+        return this.amount;
     }
 
     /**
@@ -43,4 +43,12 @@ public class LoanApplicationRequest {
         return this.type;
     }
 
+    /**
+     * Returns the loan duration (tenure) being requested by the customer.
+     *
+     * @return the duration of loan term (months).
+     */
+    public int getTenure() {
+        return this.tenure;
+    }
 }

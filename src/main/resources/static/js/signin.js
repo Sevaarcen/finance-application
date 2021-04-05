@@ -12,12 +12,14 @@
     Cookies.set('accessToken', data["accessToken"], {expires: 1, path: '/', sameSite: 'lax'});
     Cookies.set('username', data["username"], {expires: 1, path: '/', sameSite: 'lax'});
 
+    var id = data["id"];
     var token = data["accessToken"];
     var tokenType = data["tokenType"];
     var userEmail = data["email"];
     let username = data["username"];
 
     //Save these fields as local storage
+    localStorage.setItem('id', id);
     localStorage.setItem('token', token);
     localStorage.setItem('AuthorizationHeader', tokenType + " " + token);
     localStorage.setItem('username', username);

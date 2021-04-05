@@ -13,7 +13,7 @@ public class LoanApplicationServiceImpl implements LoanApplicationService {
 
     @Override
     public void submitLoanApplication(LoanApplicationRequest loanApplicationRequest) {
-        LoanApplication loanApplication = new LoanApplication(loanApplicationRequest.getType(), loanApplicationRequest.getLoanAmount(), loanApplicationRequest.getUserId());
+        LoanApplication loanApplication = new LoanApplication(loanApplicationRequest.getType(), loanApplicationRequest.getAmount(), loanApplicationRequest.getTenure(), loanApplicationRequest.getUserId());
         loanApplicationRepository.save(loanApplication);
     }
 }

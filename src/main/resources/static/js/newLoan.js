@@ -116,10 +116,11 @@ function submitLoanApplication() {
 
     var newLoan = {
         'type': document.getElementsByClassName("loanTypeSelected")[0].value,
-        'amount': document.getElementById("loanAmountSlider1").value,
+        'amount': Number(document.getElementById("loanAmountSlider1").value),
         'tenure': document.getElementById("points").value,
-        'username': localStorage.getItem('username')
+        'userId': localStorage.getItem('id')
     };
+    console.log(newLoan);
     //API call to post this new loan application to the loan application database
     $.ajax({
         url: '/api/loan/request',
@@ -132,7 +133,8 @@ function submitLoanApplication() {
         },
         success: function (result) {
             console.log("Successfully submitted!");
-            location.reload();
+            alert("Loan application was successful -- you will be contacted by an ATZ Finance employee shortly");
+            location.href = "/dashboard";
         },
         error: function (xhr, resp, text) {
             console.log(xhr, resp, text);
