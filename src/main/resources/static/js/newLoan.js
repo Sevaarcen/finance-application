@@ -106,6 +106,7 @@ function submitLoanApplication() {
 
     if (document.getElementsByClassName("loanTypeSelected").length == 0) {
         alert("No Loan Type Selected");
+        return;
     } else {
         console.log(document.getElementsByClassName("loanTypeSelected")[0].value)
     }
@@ -114,10 +115,10 @@ function submitLoanApplication() {
     console.log(document.getElementById("points").value)
 
     var newLoan = {
-        'type': document.getElementByID('loanTypeSelected'),
-        'value': document.getElementByID('loanAmountSlider1'),
-        'tenure': document.getElementByID('tenure'),
-        'userID': localStorage.getItem('id')
+        'type': document.getElementsByClassName("loanTypeSelected")[0].value,
+        'amount': document.getElementById("loanAmountSlider1").value,
+        'tenure': document.getElementById("points").value,
+        'username': localStorage.getItem('username')
     };
     //API call to post this new loan application to the loan application database
     $.ajax({
