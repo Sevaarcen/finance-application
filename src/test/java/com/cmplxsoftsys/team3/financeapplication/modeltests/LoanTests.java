@@ -1,10 +1,9 @@
 package com.cmplxsoftsys.team3.financeapplication.modeltests;
 
 import com.cmplxsoftsys.team3.financeapplication.model.Loan;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.jupiter.api.Test;
 
 public class LoanTests {
 
@@ -12,18 +11,20 @@ public class LoanTests {
     private int numberOfYears = 5;
     private double loanAmount = 12345.67;
     private String loanType = "testtype";
+    private int tenure = 3;
+    private String userID = "238ae9965t3";
 
     
     @Test
     public void loanCanBeInstantiated() {
-        Loan testLoan = new Loan(annualInterestRate, numberOfYears, loanAmount, loanType);
+        Loan testLoan = new Loan(annualInterestRate, numberOfYears, loanAmount, loanType, tenure, userID);
         assertThat(testLoan).isNotNull();
     }
 
 
     @Test
     public void loanCorrectlyReturnsFieldValues() {
-        Loan testLoan = new Loan(annualInterestRate, numberOfYears, loanAmount, loanType);
+        Loan testLoan = new Loan(annualInterestRate, numberOfYears, loanAmount, loanType, tenure, userID);
 
         assertThat(testLoan.getAnnualInterestRate()).isEqualTo(annualInterestRate);
         assertThat(testLoan.getNumberOfYears()).isEqualTo(numberOfYears);
@@ -34,7 +35,7 @@ public class LoanTests {
 
     @Test
     public void loanAttributesCanSuccessfullyBeChanged() {
-        Loan testLoan = new Loan(annualInterestRate, numberOfYears, loanAmount, loanType);
+        Loan testLoan = new Loan(annualInterestRate, numberOfYears, loanAmount, loanType, tenure, userID);
 
         testLoan.setAnnualInterestRate(99999);
         assertThat(testLoan.getAnnualInterestRate()).isNotEqualTo(annualInterestRate);

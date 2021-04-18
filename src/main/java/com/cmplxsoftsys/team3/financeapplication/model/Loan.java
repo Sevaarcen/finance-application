@@ -8,6 +8,11 @@ import java.util.Date;
  * The loan class is the structure for loans and keeps track of attributes of that loan
  */
 public class Loan {
+    enum Status {
+        PENDING,
+        APPROVED,
+        REJECTED
+    }
 
     @Id
     private String id;
@@ -17,13 +22,20 @@ public class Loan {
     private double loanAmount;
     private Date loanDate;
     private String loanType;
+    private int tenure;
+    private String userID;
+    private Status applicationStatus;
 
-    public Loan(double annualInterestRate, int numberOfYears, double loanAmount, String loanType) {
+    public Loan(double annualInterestRate, int numberOfYears, double loanAmount, String loanType, int tenure, String userID) {
         this.annualInterestRate = annualInterestRate;
         this.numberOfYears = numberOfYears;
         this.loanAmount = loanAmount;
         loanDate = new java.util.Date();
         this.loanType = loanType;
+        applicationStatus = Status.PENDING;
+        this.loanDate = new Date();
+        this.tenure = tenure;
+        this.userID = userID;
     }
 
     /**
@@ -101,5 +113,25 @@ public class Loan {
      */
     public String getLoanType() {
         return this.loanType;
+    }
+
+    public void setTenure(int tenure) {
+        this.tenure = tenure;
+    }
+
+    public int getTenure() {
+        return tenure;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setApplicationStatus(Status applicationStatus) {
+        this.applicationStatus = applicationStatus;
+    }
+
+    public Status getApplicationStatus() {
+        return this.applicationStatus;
     }
 }
