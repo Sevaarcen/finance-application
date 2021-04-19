@@ -61,7 +61,7 @@ public class UiControllerTests {
 
     @Test
     public void loginPageReqestReturnsValid_NoAuthReq() throws Exception {
-        String endpoint = "/login";
+        String endpoint = "/signin";
         mvc.perform(get(endpoint)).andExpect(status().isOk());
     }
 

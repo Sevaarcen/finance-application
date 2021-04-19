@@ -105,7 +105,5 @@ public class AuthenticationTests {
             .contentType(MediaType.APPLICATION_JSON)
             .content(payload)
         ).andExpect(status().isOk());
-
-        //TODO once we have cookie set correctly, test that it would be set as well
     }
 }

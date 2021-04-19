@@ -2,10 +2,9 @@ package com.cmplxsoftsys.team3.financeapplication.servicetests;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.cmplxsoftsys.team3.financeapplication.model.LoanApplication;
+import com.cmplxsoftsys.team3.financeapplication.model.Loan;
 import com.cmplxsoftsys.team3.financeapplication.payload.request.LoanApplicationRequest;
-import com.cmplxsoftsys.team3.financeapplication.repository.LoanApplicationRepository;
-import com.cmplxsoftsys.team3.financeapplication.service.LoanApplicationServiceImpl;
+import com.cmplxsoftsys.team3.financeapplication.repository.LoanRepository;
 import com.cmplxsoftsys.team3.financeapplication.service.LoanServiceImpl;
 
 import org.junit.jupiter.api.Test;
@@ -22,13 +21,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class LoanServiceTests {
 
     @Autowired
-    LoanApplicationServiceImpl loanApplicationService;
-
-    @Autowired
     LoanServiceImpl loanService;
 
     @MockBean
-    LoanApplicationRepository repository;
+    LoanRepository repository;
 
 
     @Test
@@ -39,15 +35,15 @@ public class LoanServiceTests {
 
     @Test
     public void validLoanApplicationIsSuccessfullyProcessedIfSubmitted() throws Exception {
-
-        LoanApplication fakeApplication = new LoanApplication("testtype", 12345.67, "testid");
+        Loan testLoan = new Loan(5, 12345.67, "testtype", "testid");
 
         LoanApplicationRequest loanAppRequest = Mockito.mock(LoanApplicationRequest.class);
-        Mockito.when(loanAppRequest.getUserId()).thenReturn(fakeApplication.getUserId());
-        Mockito.when(loanAppRequest.getType()).thenReturn(fakeApplication.getType());
-        Mockito.when(loanAppRequest.getLoanAmount()).thenReturn(fakeApplication.getAmount());
+        Mockito.when(loanAppRequest.getUserId()).thenReturn(testLoan.getUserId());
+        Mockito.when(loanAppRequest.getType()).thenReturn(testLoan.getLoanType());
+        Mockito.when(loanAppRequest.getTenure()).thenReturn(testLoan.getTenure());
+        Mockito.when(loanAppRequest.getAmount()).thenReturn(testLoan.getLoanAmount());
 
-        loanApplicationService.submitLoanApplication(loanAppRequest);
+        loanService.submitLoanApplication(loanAppRequest);
         // verify that save was called once (e.g. it would have been a write)
         Mockito.verify(repository).save(Mockito.any());
     }
