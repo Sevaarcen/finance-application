@@ -47,25 +47,24 @@ public class AuthController {
     }
 
     @GetMapping("/current/username")
-    public String getUsername() {
+    public ResponseEntity<?> getUsername() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetailsImpl principal = (UserDetailsImpl) authentication.getPrincipal();
         logger.info("Principal={}",principal.getUsername());
-        return principal.getUsername() + " " +
-                principal.getId();
+        return new ResponseEntity<>(principal.getUsername() + " " + principal.getId(), HttpStatus.OK);
     }
 
     @GetMapping("/current/id")
-    public String getUserId() {
+    public ResponseEntity<?> getUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetailsImpl principal = (UserDetailsImpl) authentication.getPrincipal();
         logger.info("User={}",userRepository.findByUsername(principal.getUsername()));
 
         Optional<User> user = userRepository.findByUsername(principal.getUsername());
         if (user.isPresent()) {
-            return user.toString();
+            return new ResponseEntity<>(user.toString(), HttpStatus.OK);
         } else {
-            return "wawawa";
+            return new ResponseEntity<>("Invalid user details", HttpStatus.UNAUTHORIZED);
         }
     }
 

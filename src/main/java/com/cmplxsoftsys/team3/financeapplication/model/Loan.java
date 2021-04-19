@@ -8,7 +8,7 @@ import java.util.Date;
  * The loan class is the structure for loans and keeps track of attributes of that loan
  */
 public class Loan {
-    enum Status {
+    public enum STATUS {
         PENDING,
         APPROVED,
         REJECTED
@@ -18,24 +18,42 @@ public class Loan {
     private String id;
 
     private double annualInterestRate;
-    private int numberOfYears;
+    private int tenure;
     private double loanAmount;
     private Date loanDate;
     private String loanType;
-    private int tenure;
-    private String userID;
-    private Status applicationStatus;
+    private String userId;
+    private STATUS applicationStatus;
 
-    public Loan(double annualInterestRate, int numberOfYears, double loanAmount, String loanType, int tenure, String userID) {
+    /**
+     * Basic constuctor for instantiating a pending loan (formerly LoanApplication object)
+     * @param numberOfYears
+     * @param loanAmount
+     * @param loanType
+     * @param userId
+     */
+    public Loan(int tenure, double loanAmount, String loanType, String userId) {
+        this(0, tenure, loanAmount, loanType, userId, STATUS.PENDING);
+    }
+
+    /**
+     * Setup a Loan with whatever valaues you desire.
+     * @param annualInterestRate
+     * @param numberOfYears
+     * @param loanAmount
+     * @param loanType
+     * @param userID
+     * @param loanStatus
+     */
+    public Loan(double annualInterestRate, int tenure, double loanAmount, String loanType, String userId, STATUS loanStatus) {
         this.annualInterestRate = annualInterestRate;
-        this.numberOfYears = numberOfYears;
-        this.loanAmount = loanAmount;
-        loanDate = new java.util.Date();
-        this.loanType = loanType;
-        applicationStatus = Status.PENDING;
-        this.loanDate = new Date();
         this.tenure = tenure;
-        this.userID = userID;
+        this.loanAmount = loanAmount;
+        this.loanDate = new java.util.Date();
+        this.loanType = loanType;
+        this.applicationStatus = loanStatus;
+        this.loanDate = new Date();
+        this.userId = userId;
     }
 
     /**
@@ -53,17 +71,17 @@ public class Loan {
     }
 
     /**
-     * Return numberOfYears
+     * Return tenure of the loan, in months
      */
-    public int getNumberOfYears() {
-        return numberOfYears;
+    public int getTenure() {
+        return this.tenure;
     }
 
     /**
-     * Set a new numberOfYears
+     * Set a new tenure, in months
      */
-    public void setNumberOfYears(int numberOfYears) {
-        this.numberOfYears = numberOfYears;
+    public void setNumberOfYears(int tenure) {
+        this.tenure = tenure;
     }
 
     /**
@@ -84,15 +102,15 @@ public class Loan {
      * Find monthly payment
      */
     public double getMonthlyPayment() {
-        double monthlyInterestRate = annualInterestRate / 1200;
-        return loanAmount * monthlyInterestRate / (1 - (Math.pow(1 / (1 + monthlyInterestRate), numberOfYears * 12)));
+        double monthlyInterestRate = annualInterestRate / 12;
+        return loanAmount * monthlyInterestRate / (1 - (Math.pow(1 / (1 + monthlyInterestRate), tenure)));
     }
 
     /**
      * Find total payment
      */
     public double getTotalPayment() {
-        return getMonthlyPayment() * numberOfYears * 12;
+        return getMonthlyPayment() * tenure;
     }
 
     /**
@@ -115,23 +133,15 @@ public class Loan {
         return this.loanType;
     }
 
-    public void setTenure(int tenure) {
-        this.tenure = tenure;
+    public String getUserId() {
+        return userId;
     }
 
-    public int getTenure() {
-        return tenure;
-    }
-
-    public String getUserID() {
-        return userID;
-    }
-
-    public void setApplicationStatus(Status applicationStatus) {
+    public void setApplicationStatus(STATUS applicationStatus) {
         this.applicationStatus = applicationStatus;
     }
 
-    public Status getApplicationStatus() {
+    public STATUS getApplicationStatus() {
         return this.applicationStatus;
     }
 }

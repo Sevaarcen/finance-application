@@ -1,7 +1,7 @@
 package com.cmplxsoftsys.team3.financeapplication.controllertests;
 
 import com.cmplxsoftsys.team3.financeapplication.controller.LoanController;
-import com.cmplxsoftsys.team3.financeapplication.repository.LoanApplicationRepository;
+import com.cmplxsoftsys.team3.financeapplication.repository.LoanRepository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -37,7 +37,7 @@ public class LoanUseCaseTests {
     private MockMvc mvc;
 
     @MockBean
-    private LoanApplicationRepository repository;
+    private LoanRepository repository;
 
 
     @BeforeEach
