@@ -3,6 +3,7 @@ package com.cmplxsoftsys.team3.financeapplication.model;
 import org.springframework.data.annotation.Id;
 
 import java.util.Date;
+import java.util.StringJoiner;
 
 /**
  * The loan class is the structure for loans and keeps track of attributes of that loan
@@ -25,9 +26,13 @@ public class Loan {
     private String userId;
     private STATUS applicationStatus;
 
+    public Loan() {
+
+    }
+
     /**
      * Basic constuctor for instantiating a pending loan (formerly LoanApplication object)
-     * @param numberOfYears
+     * @param tenure
      * @param loanAmount
      * @param loanType
      * @param userId
@@ -39,10 +44,10 @@ public class Loan {
     /**
      * Setup a Loan with whatever valaues you desire.
      * @param annualInterestRate
-     * @param numberOfYears
+     * @param tenure
      * @param loanAmount
      * @param loanType
-     * @param userID
+     * @param userId
      * @param loanStatus
      */
     public Loan(double annualInterestRate, int tenure, double loanAmount, String loanType, String userId, STATUS loanStatus) {
@@ -143,5 +148,19 @@ public class Loan {
 
     public STATUS getApplicationStatus() {
         return this.applicationStatus;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Loan.class.getSimpleName() + "[", "]")
+                .add("id='" + id + "'")
+                .add("annualInterestRate=" + annualInterestRate)
+                .add("tenure=" + tenure)
+                .add("loanAmount=" + loanAmount)
+                .add("loanDate=" + loanDate)
+                .add("loanType='" + loanType + "'")
+                .add("userId='" + userId + "'")
+                .add("applicationStatus=" + applicationStatus)
+                .toString();
     }
 }
