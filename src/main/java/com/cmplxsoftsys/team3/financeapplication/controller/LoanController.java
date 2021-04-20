@@ -2,6 +2,7 @@ package com.cmplxsoftsys.team3.financeapplication.controller;
 
 import com.cmplxsoftsys.team3.financeapplication.model.Loan;
 import com.cmplxsoftsys.team3.financeapplication.payload.request.LoanApplicationRequest;
+import com.cmplxsoftsys.team3.financeapplication.payload.request.LoanDecisionRequest;
 import com.cmplxsoftsys.team3.financeapplication.payload.response.MessageResponse;
 import com.cmplxsoftsys.team3.financeapplication.repository.LoanRepository;
 import com.cmplxsoftsys.team3.financeapplication.service.LoanService;
@@ -66,8 +67,8 @@ public class LoanController {
 
     @GetMapping("/approve/{id}")
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
-    public ResponseEntity<?> approveLoanApplication(@PathVariable("id") String id) {
-        loanService.approveLoan(id);
+    public ResponseEntity<?> approveLoanApplication(@Valid @RequestBody LoanDecisionRequest decisionRequest, @PathVariable("id") String id) {
+        loanService.approveLoan(decisionRequest, id);
         return ResponseEntity.ok(new MessageResponse("Loan application approved successfully!"));
     }
 
