@@ -58,4 +58,10 @@ public class UiController {
      */
     @GetMapping("/banking")
     public String getBanking() { return "banking";}
+
+    /**
+     * This method renders and sends the HTML Employee Loan Application View
+     */
+    @GetMapping("/loanAppReview")
+    public String getLoanAppReview() { return "loanAppReview";}
 }
