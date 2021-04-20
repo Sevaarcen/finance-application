@@ -63,4 +63,18 @@ public class LoanController {
             return null;
         }
     }
+
+    @GetMapping("/approve/{id}")
+    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
+    public ResponseEntity<?> approveLoanApplication(@PathVariable("id") String id) {
+        loanService.approveLoan(id);
+        return ResponseEntity.ok(new MessageResponse("Loan application approved successfully!"));
+    }
+
+    @GetMapping("/reject/{id}")
+    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
+    public ResponseEntity<?> rejectLoanApplication(@PathVariable("id") String id) {
+        loanService.rejectLoan(id);
+        return ResponseEntity.ok(new MessageResponse("Loan application rejected successfully!"));
+    }
 }

@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 public interface LoanService {
 
     public void submitLoanApplication(LoanApplicationRequest loanApplicationRequest);
+    public void approveLoan(String id);
+    public void rejectLoan(String id);
 
     /**
      * Returns an HTTP verification status
