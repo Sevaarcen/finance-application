@@ -8,4 +8,5 @@ import java.util.Optional;
 
 public interface LoanRepository extends MongoRepository<Loan, String> {
     Optional<List<Loan>> findByUserId(String userId);
+    Optional<List<Loan>> findByApplicationStatus(Loan.STATUS status);
 }

@@ -7,6 +7,7 @@ import com.cmplxsoftsys.team3.financeapplication.repository.LoanRepository;
 import com.cmplxsoftsys.team3.financeapplication.service.LoanService;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -46,6 +47,18 @@ public class LoanController {
             List<Loan> loanApplications = allFromUserId.get();
             loanApplications.stream().forEach(loanApplication -> logger.info(loanApplication.toString()));
             return loanApplications.toString();
+        } else {
+            return null;
+        }
+    }
+
+    @GetMapping("/pending/all")
+    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
+    public String requestAllApplications() {
+        Optional<List<Loan>> allPending = loanRepository.findByApplicationStatus(Loan.STATUS.PENDING);
+        if(allPending.isPresent()) {
+            List<Loan> presentPending = allPending.get();
+            return presentPending.toString();
         } else {
             return null;
         }
