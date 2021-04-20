@@ -2,11 +2,15 @@ package com.cmplxsoftsys.team3.financeapplication.service;
 
 import com.cmplxsoftsys.team3.financeapplication.model.Loan;
 import com.cmplxsoftsys.team3.financeapplication.payload.request.LoanApplicationRequest;
+import com.cmplxsoftsys.team3.financeapplication.payload.request.LoanDecisionRequest;
 import com.cmplxsoftsys.team3.financeapplication.repository.LoanRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import javax.validation.Valid;
+import java.sql.SQLOutput;
 
 /**
  * This class is a service which implements the LoanService class
@@ -24,10 +28,11 @@ public class LoanServiceImpl implements LoanService {
     }
 
     @Override
-    public void approveLoan(String id) {
+    public void approveLoan(@Valid LoanDecisionRequest decisionRequest, String id) {
         Loan toBeApproved = loanRepository.findById(id).orElse(null);
         if (toBeApproved != null) {
             toBeApproved.setApplicationStatus(Loan.STATUS.APPROVED);
+            toBeApproved.setAnnualInterestRate(decisionRequest.getAnnualInterestRate());
             loanRepository.save(toBeApproved);
         }
     }

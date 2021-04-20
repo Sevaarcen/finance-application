@@ -2,6 +2,7 @@ package com.cmplxsoftsys.team3.financeapplication.service;
 
 import com.cmplxsoftsys.team3.financeapplication.payload.request.LoanApplicationRequest;
 
+import com.cmplxsoftsys.team3.financeapplication.payload.request.LoanDecisionRequest;
 import org.springframework.http.ResponseEntity;
 
 /**
@@ -10,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 public interface LoanService {
 
     public void submitLoanApplication(LoanApplicationRequest loanApplicationRequest);
-    public void approveLoan(String id);
+    public void approveLoan(LoanDecisionRequest loanDecisionRequest, String id);
     public void rejectLoan(String id);
 
     /**
