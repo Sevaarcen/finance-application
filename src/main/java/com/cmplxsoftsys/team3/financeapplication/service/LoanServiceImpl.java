@@ -23,6 +23,24 @@ public class LoanServiceImpl implements LoanService {
         loanRepository.save(loanApplication);
     }
 
+    @Override
+    public void approveLoan(String id) {
+        Loan toBeApproved = loanRepository.findById(id).orElse(null);
+        if (toBeApproved != null) {
+            toBeApproved.setApplicationStatus(Loan.STATUS.APPROVED);
+            loanRepository.save(toBeApproved);
+        }
+    }
+
+    @Override
+    public void rejectLoan(String id) {
+        Loan toBeRejected = loanRepository.findById(id).orElse(null);
+        if (toBeRejected != null) {
+            toBeRejected.setApplicationStatus(Loan.STATUS.REJECTED);
+            loanRepository.save(toBeRejected);
+        }
+    }
+
     /**
      * Returns an HTTP verification status
      *
