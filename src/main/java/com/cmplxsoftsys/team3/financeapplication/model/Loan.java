@@ -152,15 +152,15 @@ public class Loan {
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", Loan.class.getSimpleName() + "[", "]")
-                .add("id='" + id + "'")
-                .add("annualInterestRate=" + annualInterestRate)
-                .add("tenure=" + tenure)
-                .add("loanAmount=" + loanAmount)
-                .add("loanDate=" + loanDate)
-                .add("loanType='" + loanType + "'")
-                .add("userId='" + userId + "'")
-                .add("applicationStatus=" + applicationStatus)
+        return new StringJoiner(", ", "{", "}")
+                .add("\"id\": \"" + id + "\"")
+                .add("\"annualInterestRate\": " + annualInterestRate)
+                .add("\"tenure\": " + tenure)
+                .add("\"loanAmount\": " + loanAmount)
+                .add("\"loanDate\": \"" + loanDate+"\"")
+                .add("\"loanType\": \"" + loanType + "\"")
+                .add("\"userId\": \"" + userId + "\"")
+                .add("\"applicationStatus\": \"" + applicationStatus + "\"")
                 .toString();
     }
 }
