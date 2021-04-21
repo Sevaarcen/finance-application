@@ -8,6 +8,7 @@ import com.cmplxsoftsys.team3.financeapplication.repository.LoanRepository;
 import com.cmplxsoftsys.team3.financeapplication.service.LoanService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +35,7 @@ public class LoanController {
     @Autowired
     LoanRepository loanRepository;
 
-    
+
     @PostMapping("/request")
     public ResponseEntity<?> requestNewLoan(@Valid @RequestBody LoanApplicationRequest request) {
         loanService.submitLoanApplication(request);
@@ -42,26 +43,26 @@ public class LoanController {
     }
 
     @GetMapping("/byuser/{userID}")
-    public String findByUser(@PathVariable("userID") String userID) {
+    public ResponseEntity<?> findByUser(@PathVariable("userID") String userID) {
         Optional<List<Loan>> allFromUserId = loanRepository.findByUserId(userID);
         if (allFromUserId.isPresent()) {
             List<Loan> loanApplications = allFromUserId.get();
             loanApplications.stream().forEach(loanApplication -> logger.info(loanApplication.toString()));
-            return loanApplications.toString();
+            return new ResponseEntity<>(loanApplications, HttpStatus.OK);
         } else {
-            return null;
+            return new ResponseEntity<>("Could not find loans for given userid", HttpStatus.NOT_FOUND);
         }
     }
 
     @GetMapping("/pending/all")
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
-    public String requestAllApplications() {
+    public ResponseEntity<?> requestAllApplications() {
         Optional<List<Loan>> allPending = loanRepository.findByApplicationStatus(Loan.STATUS.PENDING);
         if(allPending.isPresent()) {
             List<Loan> presentPending = allPending.get();
-            return presentPending.toString();
+            return new ResponseEntity<>(presentPending, HttpStatus.OK);
         } else {
-            return null;
+            return new ResponseEntity<>("LoanRepository returning nothing", HttpStatus.NOT_FOUND);
         }
     }
 
