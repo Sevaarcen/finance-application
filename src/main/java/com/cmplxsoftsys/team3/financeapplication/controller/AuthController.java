@@ -62,7 +62,7 @@ public class AuthController {
 
         Optional<User> user = userRepository.findByUsername(principal.getUsername());
         if (user.isPresent()) {
-            return new ResponseEntity<>(user.toString(), HttpStatus.OK);
+            return new ResponseEntity<>(user, HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Invalid user details", HttpStatus.UNAUTHORIZED);
         }
