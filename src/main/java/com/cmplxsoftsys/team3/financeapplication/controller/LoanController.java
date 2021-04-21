@@ -42,12 +42,12 @@ public class LoanController {
     }
 
     @GetMapping("/byuser/{userID}")
-    public String findByUser(@PathVariable("userID") String userID) {
+    public List<Loan> findByUser(@PathVariable("userID") String userID) {
         Optional<List<Loan>> allFromUserId = loanRepository.findByUserId(userID);
         if (allFromUserId.isPresent()) {
             List<Loan> loanApplications = allFromUserId.get();
-            loanApplications.stream().forEach(loanApplication -> logger.info(loanApplication.toString()));
-            return loanApplications.toString();
+            loanApplications.stream().forEach(loanApplication -> logger.info("Finding loan. userID={} loanApplication={}", userID, loanApplication));
+            return loanApplications;
         } else {
             return null;
         }
@@ -55,11 +55,11 @@ public class LoanController {
 
     @GetMapping("/pending/all")
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
-    public String requestAllApplications() {
+    public List<Loan> requestAllApplications() {
         Optional<List<Loan>> allPending = loanRepository.findByApplicationStatus(Loan.STATUS.PENDING);
         if(allPending.isPresent()) {
             List<Loan> presentPending = allPending.get();
-            return presentPending.toString();
+            return presentPending;
         } else {
             return null;
         }

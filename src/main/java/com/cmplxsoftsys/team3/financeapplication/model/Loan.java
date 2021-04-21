@@ -150,17 +150,17 @@ public class Loan {
         return this.applicationStatus;
     }
 
-    @Override
-    public String toString() {
-        return new StringJoiner(", ", "{", "}")
-                .add("\"id\": \"" + id + "\"")
-                .add("\"annualInterestRate\": " + annualInterestRate)
-                .add("\"tenure\": " + tenure)
-                .add("\"loanAmount\": " + loanAmount)
-                .add("\"loanDate\": \"" + loanDate+"\"")
-                .add("\"loanType\": \"" + loanType + "\"")
-                .add("\"userId\": \"" + userId + "\"")
-                .add("\"applicationStatus\": \"" + applicationStatus + "\"")
-                .toString();
-    }
+//    @Override
+//    public String toString() {
+//        return new StringJoiner(", ", "{", "}")
+//                .add("\"id\": \"" + id + "\"")
+//                .add("\"annualInterestRate\": " + annualInterestRate)
+//                .add("\"tenure\": " + tenure)
+//                .add("\"loanAmount\": " + loanAmount)
+//                .add("\"loanDate\": \"" + loanDate+"\"")
+//                .add("\"loanType\": \"" + loanType + "\"")
+//                .add("\"userId\": \"" + userId + "\"")
+//                .add("\"applicationStatus\": \"" + applicationStatus + "\"")
+//                .toString();
+//    }
 }
