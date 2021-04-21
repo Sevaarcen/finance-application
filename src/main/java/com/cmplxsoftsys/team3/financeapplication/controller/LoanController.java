@@ -7,6 +7,7 @@ import com.cmplxsoftsys.team3.financeapplication.payload.response.MessageRespons
 import com.cmplxsoftsys.team3.financeapplication.repository.LoanRepository;
 import com.cmplxsoftsys.team3.financeapplication.service.LoanService;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -27,14 +28,13 @@ import java.util.Optional;
 public class LoanController {
     private Logger logger = LoggerFactory.getLogger(LoanController.class);
 
-    private final LoanService loanService;
-    private final LoanRepository loanRepository;
+    @Autowired
+    LoanService loanService;
 
-    public LoanController(LoanService loanService, LoanRepository loanRepository) {
-        this.loanService = loanService;
-        this.loanRepository = loanRepository;
-    }
+    @Autowired
+    LoanRepository loanRepository;
 
+    
     @PostMapping("/request")
     public ResponseEntity<?> requestNewLoan(@Valid @RequestBody LoanApplicationRequest request) {
         loanService.submitLoanApplication(request);
@@ -65,14 +65,14 @@ public class LoanController {
         }
     }
 
-    @GetMapping("/approve/{id}")
+    @PostMapping("/approve/{id}")
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<?> approveLoanApplication(@Valid @RequestBody LoanDecisionRequest decisionRequest, @PathVariable("id") String id) {
         loanService.approveLoan(decisionRequest, id);
         return ResponseEntity.ok(new MessageResponse("Loan application approved successfully!"));
     }
 
-    @GetMapping("/reject/{id}")
+    @PostMapping("/reject/{id}")
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<?> rejectLoanApplication(@PathVariable("id") String id) {
         loanService.rejectLoan(id);

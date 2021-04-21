@@ -49,9 +49,13 @@ public class AuthController {
     @GetMapping("/current/username")
     public ResponseEntity<?> getUsername() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserDetailsImpl principal = (UserDetailsImpl) authentication.getPrincipal();
-        logger.info("Principal={}",principal.getUsername());
-        return new ResponseEntity<>(principal.getUsername() + " " + principal.getId(), HttpStatus.OK);
+        try {
+            UserDetailsImpl principal = (UserDetailsImpl) authentication.getPrincipal();
+            logger.info("Principal={}",principal.getUsername());
+            return new ResponseEntity<>(principal.getUsername() + " " + principal.getId(), HttpStatus.OK);
+        } catch (ClassCastException ex) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
     }
 
     @GetMapping("/current/id")
