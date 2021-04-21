@@ -65,14 +65,14 @@ public class LoanController {
         }
     }
 
-    @GetMapping("/approve/{id}")
+    @PostMapping("/approve/{id}")
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<?> approveLoanApplication(@Valid @RequestBody LoanDecisionRequest decisionRequest, @PathVariable("id") String id) {
         loanService.approveLoan(decisionRequest, id);
         return ResponseEntity.ok(new MessageResponse("Loan application approved successfully!"));
     }
 
-    @GetMapping("/reject/{id}")
+    @PostMapping("/reject/{id}")
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<?> rejectLoanApplication(@PathVariable("id") String id) {
         loanService.rejectLoan(id);
