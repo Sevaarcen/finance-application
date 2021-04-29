@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -22,7 +23,7 @@ public class TransactionController {
     }
 
     @PostMapping("/make")
-    public ResponseEntity<?> makeTransaction(MakeTransactionRequest makeTransactionRequest) {
+    public ResponseEntity<?> makeTransaction(@Valid @ RequestBody MakeTransactionRequest makeTransactionRequest) {
         transactionService.makePayment(makeTransactionRequest);
         return ResponseEntity.ok(new MessageResponse("Transaction successfully made!"));
     }
