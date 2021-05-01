@@ -6,7 +6,9 @@ import com.cmplxsoftsys.team3.financeapplication.repository.UserRepository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.cookie;
 
 import java.util.Optional;
 
@@ -21,6 +23,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
@@ -105,5 +108,17 @@ public class AuthenticationTests {
             .contentType(MediaType.APPLICATION_JSON)
             .content(payload)
         ).andExpect(status().isOk());
+    }
+
+
+    @WithMockUser("testuser")
+    @Test
+    public void successfullyPerformLogoutWhenLoggedIn() throws Exception {
+        String endpoint = "/logout";  // not actually part of the API, is part of UI but fits better here
+        
+        this.mvc.perform(
+            get(endpoint)
+        ).andExpect(status().isOk())
+         .andExpect(cookie().doesNotExist("JSESSIONID"));
     }
 }
