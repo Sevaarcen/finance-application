@@ -28,7 +28,7 @@ public class TransactionController {
         return ResponseEntity.ok(new MessageResponse("Transaction successfully made!"));
     }
 
-    @GetMapping("/get/{userId}")
+    @GetMapping("/get/user/{userId}")
     public List<Transaction> getByUserId(@PathVariable("userId") String userId) {
         return transactionService.viewPaymentsByUser(userId);
     }
@@ -37,5 +37,10 @@ public class TransactionController {
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     public List<Transaction> getAll() {
         return transactionService.viewAllTransactions();
+    }
+
+    @GetMapping("/get/loan/{loanId}")
+    public List<Transaction> getByLoanId(@PathVariable("loanId") String loanId) {
+        return transactionService.viewPaymentsByLoan(loanId);
     }
 }

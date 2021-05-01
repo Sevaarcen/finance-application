@@ -37,4 +37,10 @@ public class TransactionServiceImpl implements TransactionService {
     public List<Transaction> viewAllTransactions() {
         return transactionRepository.findAll();
     }
+
+    @Override
+    public List<Transaction> viewPaymentsByLoan(String loanId) {
+        Optional<List<Transaction>> byLoanId = transactionRepository.findByLoanId(loanId);
+        return byLoanId.orElse(null);
+    }
 }
