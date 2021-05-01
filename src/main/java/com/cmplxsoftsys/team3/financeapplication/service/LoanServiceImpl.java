@@ -6,11 +6,10 @@ import com.cmplxsoftsys.team3.financeapplication.payload.request.LoanDecisionReq
 import com.cmplxsoftsys.team3.financeapplication.repository.LoanRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
-import java.sql.SQLOutput;
+
 
 /**
  * This class is a service which implements the LoanService class
@@ -44,40 +43,5 @@ public class LoanServiceImpl implements LoanService {
             toBeRejected.setApplicationStatus(Loan.STATUS.REJECTED);
             loanRepository.save(toBeRejected);
         }
-    }
-
-    /**
-     * Returns an HTTP verification status
-     *
-     * @return status
-     */
-    @Override
-    public ResponseEntity<?> verifyLoanContents() {
-        return null;
-    }
-
-    /**
-     * Returns an HTTP conversion status
-     *
-     * @return status
-     */
-    @Override
-    public ResponseEntity<?> convertToUSD() {
-        return null;
-    }
-
-    @Override
-    public ResponseEntity<?> submitLoanApplication() {
-        return null;
-    }
-
-    @Override
-    public ResponseEntity<?> getLoansForAccount() {
-        return null;
-    }
-
-    @Override
-    public ResponseEntity<?> getLoanApplicationStatus() {
-        return null;
     }
 }

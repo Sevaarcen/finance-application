@@ -23,7 +23,7 @@ public interface UserRepository extends MongoRepository<User, String> {
      * @param username username to search for
      * @return if username is in use already
      */
-    Boolean existsByUsername(String username);
+    boolean existsByUsername(String username);
 
     /**
      * Searches for a user in the DB and says if the email was found.
@@ -31,5 +31,5 @@ public interface UserRepository extends MongoRepository<User, String> {
      * @param email email address to search for
      * @return if email is in use already
      */
-    Boolean existsByEmail(String email);
+    boolean existsByEmail(String email);
 }

@@ -7,6 +7,8 @@ import com.cmplxsoftsys.team3.financeapplication.payload.response.MessageRespons
 import com.cmplxsoftsys.team3.financeapplication.repository.LoanRepository;
 import com.cmplxsoftsys.team3.financeapplication.service.LoanService;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -27,13 +29,12 @@ import java.util.Optional;
 public class LoanController {
     private Logger logger = LoggerFactory.getLogger(LoanController.class);
 
-    private final LoanService loanService;
-    private final LoanRepository loanRepository;
+    @Autowired
+    LoanService loanService;
 
-    public LoanController(LoanService loanService, LoanRepository loanRepository) {
-        this.loanService = loanService;
-        this.loanRepository = loanRepository;
-    }
+    @Autowired
+    LoanRepository loanRepository;
+
 
     @PostMapping("/request")
     public ResponseEntity<?> requestNewLoan(@Valid @RequestBody LoanApplicationRequest request) {
@@ -42,26 +43,26 @@ public class LoanController {
     }
 
     @GetMapping("/byuser/{userID}")
-    public List<Loan> findByUser(@PathVariable("userID") String userID) {
+    public ResponseEntity<?> findByUser(@PathVariable("userID") String userID) {
         Optional<List<Loan>> allFromUserId = loanRepository.findByUserId(userID);
         if (allFromUserId.isPresent()) {
             List<Loan> loanApplications = allFromUserId.get();
             loanApplications.stream().forEach(loanApplication -> logger.info("Finding loan. userID={} loanApplication={}", userID, loanApplication));
-            return loanApplications;
+            return new ResponseEntity<>(loanApplications, HttpStatus.OK);
         } else {
-            return null;
+            return new ResponseEntity<>("Could not find loans for given userid", HttpStatus.NOT_FOUND);
         }
     }
 
     @GetMapping("/pending/all")
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
-    public List<Loan> requestAllApplications() {
+    public ResponseEntity<?> requestAllApplications() {
         Optional<List<Loan>> allPending = loanRepository.findByApplicationStatus(Loan.STATUS.PENDING);
         if(allPending.isPresent()) {
             List<Loan> presentPending = allPending.get();
-            return presentPending;
+            return new ResponseEntity<>(presentPending, HttpStatus.OK);
         } else {
-            return null;
+            return new ResponseEntity<>("LoanRepository returning nothing", HttpStatus.NOT_FOUND);
         }
     }
 
