@@ -58,7 +58,7 @@ public class LoanServiceTests {
     @Test
     public void loanServiceLogic_CanSuccessfullyAcceptLoan() throws Exception {
         String testLoanId = "test123456";
-        Loan testLoan = new Loan(5, 12345.67, "testtype", "testid");
+        Loan testLoan = new Loan(5, 12345.67, "testtype", testLoanId);
         ReflectionTestUtils.setField(testLoan, "id", testLoanId);
 
         Mockito.when(repository.findById(testLoanId)).thenReturn(Optional.of(testLoan));
@@ -80,7 +80,7 @@ public class LoanServiceTests {
     @Test
     public void loanServiceLogic_CanSuccessfullyRejectLoan() throws Exception {
         String testLoanId = "test123456";
-        Loan testLoan = new Loan(5, 12345.67, "testtype", "testid");
+        Loan testLoan = new Loan(5, 12345.67, "testtype", testLoanId);
         ReflectionTestUtils.setField(testLoan, "id", testLoanId);
 
         Mockito.when(repository.findById(testLoanId)).thenReturn(Optional.of(testLoan));

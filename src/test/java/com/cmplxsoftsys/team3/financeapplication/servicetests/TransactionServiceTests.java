@@ -58,7 +58,7 @@ public class TransactionServiceTests {
 
     @Test
     public void transactionServiceLogic_canSuccessfullyMakePayment() throws Exception {
-        Transaction transaction = new Transaction("testuserid", 123.50);
+        Transaction transaction = new Transaction("testuserid", 123.50, "testloanid");
 
         MakeTransactionRequest request = Mockito.mock(MakeTransactionRequest.class);
         Mockito.when(request.getUserId()).thenReturn(transaction.getUserId());
@@ -77,9 +77,9 @@ public class TransactionServiceTests {
         ArrayList<Transaction> transactionTestList = new ArrayList<>();
         String testid = "testuser";
 
-        Transaction t1 = new Transaction(testid, 123.50);
-        Transaction t2 = new Transaction(testid, 250);
-        Transaction t3 = new Transaction(testid, 165651.76);
+        Transaction t1 = new Transaction(testid, 123.50, "testloan");
+        Transaction t2 = new Transaction(testid, 250, "testloan");
+        Transaction t3 = new Transaction(testid, 165651.76, "testloan");
         transactionTestList.add(t1);
         transactionTestList.add(t2);
         transactionTestList.add(t3);
@@ -105,9 +105,9 @@ public class TransactionServiceTests {
     @Test
     public void transactionServiceLogic_canViewAllTransactions() {
         ArrayList<Transaction> transactionTestList = new ArrayList<>();
-        transactionTestList.add(new Transaction("testuid1", 123));
-        transactionTestList.add(new Transaction("testuid2", 456));
-        transactionTestList.add(new Transaction("testuid3", 789));
+        transactionTestList.add(new Transaction("testuid1", 123, "testloan"));
+        transactionTestList.add(new Transaction("testuid2", 456, "testloan"));
+        transactionTestList.add(new Transaction("testuid3", 789, "testloan"));
 
         Mockito.when(repository.findAll()).thenReturn(transactionTestList);
 

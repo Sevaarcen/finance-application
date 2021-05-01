@@ -102,7 +102,7 @@ public class TransactionUseCaseTests {
     public void authorizedUserCanSendTransactionRequest() throws Exception {
         String endpoint = "/api/transactions/make";
 
-        String payload = "{\"userId\": \"tester\", \"value\": 1234567890}";
+        String payload = "{\"userId\": \"tester\", \"value\": 1234567890, \"loanId\": \"testloanid\"}";
 
         this.mvc.perform(
             post(endpoint)
