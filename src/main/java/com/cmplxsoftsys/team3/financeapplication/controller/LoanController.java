@@ -47,7 +47,7 @@ public class LoanController {
         Optional<List<Loan>> allFromUserId = loanRepository.findByUserId(userID);
         if (allFromUserId.isPresent()) {
             List<Loan> loanApplications = allFromUserId.get();
-            loanApplications.stream().forEach(loanApplication -> logger.info(loanApplication.toString()));
+            loanApplications.stream().forEach(loanApplication -> logger.info("Finding loan. userID={} loanApplication={}", userID, loanApplication));
             return new ResponseEntity<>(loanApplications, HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Could not find loans for given userid", HttpStatus.NOT_FOUND);
