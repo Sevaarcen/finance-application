@@ -64,4 +64,16 @@ public class UiController {
      */
     @GetMapping("/loanAppReview")
     public String getLoanAppReview() { return "loanAppReview";}
+
+    /**
+     * This method renders and sends the HTML User Transaction History View
+     */
+    @GetMapping("/viewTransactions")
+    public String getViewTransactions() { return "viewTransactions";}
+
+    /**
+     * This method renders and sends the HTML New Loan Payment View
+     */
+    @GetMapping("/newPayment")
+    public String getNewPayment() { return "newPayment";}
 }
