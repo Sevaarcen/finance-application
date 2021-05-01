@@ -110,7 +110,7 @@
                     </div>
                     <div class="paymentCardButtons">
                         <button class="secondaryButton">Support</button>
-                        <button class="primaryButton">Payment</button>
+                        <a th:href="@{/newPayment}"><button class="primaryButton">Payment</button></a>
                     </div>
 
                 </div>
@@ -138,7 +138,8 @@
             <div class="bottomContentRow">
                 <div class="transactionCard cardRadius">
                     <h2>Transactions</h2>
-                    <h5>Nice</h5>
+                    <a th:href="@{/viewTransactions}" style="padding-bottom: 10px"><button class="viewTransactionsButton">View Transactions</button></a>
+
                 </div>
                 <div class="contentCard cardRadius">
                     <h2>Content</h2>

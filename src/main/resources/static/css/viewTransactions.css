@@ -53,6 +53,18 @@ h6 {
     height: 30px;
 }
 
+#userImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: red;
+    margin-top: 20px
+}
+
+#userName {
+
+}
+
 #myProfileLink {
     color: mediumpurple;
     text-decoration: none
@@ -142,7 +154,7 @@ h6 {
 
 .dashboardView {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex: 7;
 }
 
@@ -150,108 +162,6 @@ h6 {
     display: flex;
     flex-direction: row;
     padding: 20px;
-}
-
-.titleContainer {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.balanceCard {
-    background-color: darkslategray;
-    display: flex;
-    flex: 2;
-    margin: 0px 20px;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.balanceCard > .balanceCardText {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.balanceCard > .balanceCardPaymentMethodLogo {
-
-}
-
-.accountDetailsCard {
-    background-color: darkslategray;
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    margin: 0px 20px;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.middleContentRow {
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-}
-
-.balanceGraph {
-    background: rgb(27,100,180);
-    background: linear-gradient(0deg, rgba(27,100,180,1) 0%, rgba(239,208,255,1) 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 2;
-    margin: 0px 20px 0px 0px;
-}
-
-.paymentCard {
-    background-color: whitesmoke;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    margin: 0px 20px;
-}
-
-.paymentCardTopRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.paymentCardMetrics {
-    padding: 0px 20px;
-}
-
-.paymentCardLogo {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-#payIconDetails {
-    stroke: black;
-    fill: transparent;
-    width: 50px;
-    height: 50px;
-}
-
-.paymentCardCurrentLoanDetails {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.paymentCardButtons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
 }
 
 .primaryButton {
@@ -280,77 +190,159 @@ h6 {
     cursor: pointer;
 }
 
-.currentLoansList {
+.transactionColumn {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     margin: 0px 20px;
-    flex: 0.5;
+    flex: 3;
 }
 
-.loanStatusCard {
+.titleContainer {
     display: flex;
     flex-direction: column;
-    background-color: whitesmoke;
-    margin-bottom: 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    /*flex: 1;*/
 }
 
-.loanStatusCard > .loanStatusTopRow {
+.cardsRow {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
-.loanStatusCard > .loanStatusSecondRow {
-    width: 80%;
+.savedCreditCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    background: darkslategray;
 }
 
-.bottomContentRow {
+.creditTopRow {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    padding: 20px;
 }
 
-.transactionCard {
+.creditCardSvg {
+    margin: 20px 20px;
+    height: 50px;
+    width: 300px;
+}
+
+.creditMiddleRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.creditBottomRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.transactionHistoryCard {
+    background: whitesmoke;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 2;
-    background-color: whitesmoke;
-    margin-right: 20px;
+    /*flex: 1;*/
+    width: 100%;
+    margin-top: 20px;
+    /*margin: 0px 20px 0px 0px;*/
 }
 
-.viewTransactionsButton {
-    background-color: darkslategray;
-    color: white;
-    border-radius: 8px;
-    border-color: transparent;
-    padding: 5px 20px;
-    outline: none;
+.transactionHistoryCardTitle {
+    padding-left: 0px;
 }
 
-.viewTransactionsButton:hover {
-    cursor: pointer;
+.transactionHistoryTable {
+
+    text-align: center;
+    margin: 0px 10px 10px 10px;
+    width: 90%;
+}
+.transactionHistoryTable td, .transactionHistoryTable th {
+    padding: 10px 10px;
+    margin: 10px 0px;
 }
 
-.contentCard {
+transactionHistoryTable thead {
+}
+transactionHistoryTable thead th {
+    font-weight: normal;
+}
+
+
+.transactionDetailsColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.transactionDetailsCard {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 1;
-    background-color: gray;
-    margin: 0px 20px;
 }
+
+.transactionDetailsHeader {
+    padding: 0px 10px;
+    text-align: center;
+}
+
+#userImage2 {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: red;
+    margin-top: 20px
+}
+
+/*CSS Grid Builder tool resource: https://grid.layoutit.com/*/
+.paymentDetailsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0px 10px;
+    grid-template-areas:
+    ". ."
+    ". ."
+    ". ."
+    ". .";
+    margin: 10px;
+}
+
+.paymentDetailsGrid > h4, h5 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+/*Mobile CSS*/
 
 @media only screen
 and (min-device-width: 300px)
 and (max-device-width: 800px)
 and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: portrait) {
+
 
     .container {
         display: flex;
@@ -365,10 +357,6 @@ and (orientation: portrait) {
 
     .navbar > .navbarLinksContainer > .navbarLinksButton {
         margin: 30px 5px;
-    }
-
-    .navbarLinksButton > a > h2 {
-        font-size: medium;
     }
 
     #userName {
@@ -451,62 +439,49 @@ and (orientation: portrait) {
         flex-direction: column;
     }
 
+    h2 {
+        font-size: xx-large;
+    }
+
+    .transactionColumn {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0px 0px;
+        flex: 3;
+    }
+
     .titleContainer {
-        padding-bottom: 10px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        /*flex: 1;*/
     }
 
-    .titleContainer > h5 {
-        display: flex;
-        flex-direction: row;
-        align-self: center;
+    .transactionHistoryTable {
+
         text-align: center;
+        margin: 0px 0px 10px 0px;
+        width: 90%;
     }
 
-    .balanceCard {
-        margin: 5px;
-    }
-
-    .accountDetailsCard {
-        margin: 5px;
-    }
-
-    .middleContentRow {
-        display: flex;
-        flex-direction: column;
-        margin: 0px;
-    }
-
-    .paymentCard {
-        margin: 30px 0px;
-    }
-
-    .balanceGraph {
-        margin: 0px;
-    }
-
-    .paymentCardTopRow {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .bottomContentRow {
+    .transactionDetailsCard {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-top: 20px;
     }
 
-    .transactionCard {
-        margin: 20px 0px;
-        padding: 20px;
+    .transactionDetailsColumn {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: inherit;
     }
-
 }
