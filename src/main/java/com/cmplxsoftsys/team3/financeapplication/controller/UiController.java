@@ -48,6 +48,12 @@ public class UiController {
     public String getSignUp() { return "signup";}
 
     /**
+     * This method clears localstorage and Cookies and logs the user out
+     */
+    @GetMapping("/logout")
+    public String logout() { return "logout";}
+
+    /**
      * This method renders and sends the HTML New Loan Application View
      */
     @GetMapping("/newLoan")

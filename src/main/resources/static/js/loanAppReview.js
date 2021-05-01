@@ -49,10 +49,81 @@ var renovateLoanCard = "                            <button class=\"loanOptionCa
     "                            </button>"
 
 
+//API call to get all pending loans
+$.ajax({
+    url: '/api/loan/pending/all',
+    type: "GET",
+    dataType: 'json',
+    contentType: "application/json; charset=utf-8",
+    beforeSend: function (xhr) {
+        xhr.setRequestHeader('Authorization', localStorage.getItem('AuthorizationHeader'));
+    },
+    success: function (result) {
+        console.log("Pending loan successfully fetched");
+        console.log(result)
 
-buildPendingLoansTable([1,2,3])
+        function buildPendingLoansTable(loans) {
+            for (i in loans) {
+
+                var loan = loans[i];
+                var pendingLoansRow = "<tr class=\"tableRowRadius\" onclick=\"toggleTableRows('hidden_row" + i + "')\">\n" +
+                    "                            <td><svg id=\"hidden_row" + i + "chevron\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-5 -8 24 24\" width=\"24\" height=\"24\" preserveAspectRatio=\"xMinYMin\" class=\"icon__icon\"><path d=\"M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z\"></path></svg></td>\n" +
+                    "                            <td id=\"firstRow" + i + "\">" + loan.loanDate + "</td>\n" +
+                    "                            <td id=\"lastRow" + i + "\"></td>\n" +
+                    "                            <td id=\"dateRow" + i + "\"></td>\n" +
+                    "                            <td id=\"idRow" + i + "\">" + loan.userId + "</td>\n" +
+                    "                            <td id=\"amountRow" + i + "\">" + loan.loanAmount + "</td>\n" +
+                    "                            <td id=\"statusRow" + i + "\">" + loan.applicationStatus + "</td>\n" +
+                    "                        </tr>\n" +
+                    "                        <tr id=\"hidden_row" + i + "\" class=\"hidden_row\">\n" +
+                    "                            <td>\n" +
+                    "                                <h3>Type:</h3>\n" +
+                    "                            </td>\n" +
+                    "                            <td class=\"pendingLoansTableExpanded\">\n" +
+                    "                                <button class=\"loanOptionCard cardRadius\" id=\"carLoanCard\" value=\"Car\" onclick=\"setCarLoanSelected()\">\n" +
+                    "                                    <div class=\"loanOptionCardTopRow\">\n" +
+                    "                                        <h4>" + loan.loanType + "</h4>\n" +
+                    "                                        \n" +
+                    "                                    </div>\n" +
+                    "                                    <div class=\"loanOptionCardBottomRow\">\n" +
+                    "                                        <h5 style=\"font-weight: lighter\">Loan for " + loan.loanType + "</h5>\n" +
+                    "                                    </div>\n" +
+                    "                                </button>\n" +
+                    "                            </td>\n" +
+                    "                            <td>\n" +
+                    "                                <h3>Tenure:</h3>\n" +
+                    "                            </td>\n" +
+                    "                            <td>\n" +
+                    "                                <h4>" + loan.tenure + "  months</h4>\n" +
+                    "                            </td>\n" +
+                    "                            <td>\n" +
+                    "                                <label for=\"interestRateInput" + i + "\" style=\"font-weight: bold\">Interest Rate: (%)</label>\n" +
+                    "                                <input class=\"interestRateInputClass\"  type=\"number\" id=\"" + loan.id + "\" value=" + loan.annualInterestRate + ">\n" +
+                    "                            </td>\n" +
+                    "                            <td></td>\n" +
+                    "                            <td>\n" +
+                    "                                <button id=\"approveLoanButton" + i + "\" class=\"approveLoanButton\" onclick=\"approveLoan( '" + loan.id + "' )\">Approve</button>\n" +
+                    "                                <button id=\"rejectLoanButton" + i + "\" class=\"rejectLoanButton\" onclick=\"rejectLoan('" + loan.id + "')\">Reject</button>\n" +
+                    "                            </td>\n" +
+                    "                        </tr>";
+                $('.pendingLoansTableBody').append(pendingLoansRow);
+                $('.hidden_row').toggle();
+            }
+        }
+
+        buildPendingLoansTable(result);
+        //location.href = "/dashboard";
+    },
+    error: function (xhr, resp, text) {
+        console.log(xhr, resp, text);
+    }
+})
+
+
+
+
 buildProcessedLoansTable([1,2,3])
-$('.hidden_row').toggle();
+//$('.hidden_row').toggle();
 
 
 //Source for expanding table rows: https://www.geeksforgeeks.org/how-to-make-html-table-expand-on-click-using-javascript/
@@ -71,118 +142,198 @@ function toggleTableRows(row) {
 
 
 
-function approveLoan() {
+function approveLoan(loanId) {
+    var annualInterestRate =  Array.from(document.querySelectorAll('.interestRateInputClass')).filter(node => node.id == loanId)[0].value;
+
+    var loanID = loanId;
+    //var loanID = $(this).parent().parent().prev().children()[4].innerText;
+    //var annualInterestRate = {'annualInterestRate': parseFloat($('#interestRateInput0').val())} ;
+    console.log(loanID)
+    console.log(parseFloat($('#interestRateInput0').val()))
+    //API call to post an approved loan
+    $.ajax({
+        url: '/api/loan/approve/'+loanID,
+        type: "POST",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({'annualInterestRate': annualInterestRate}),
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Authorization', localStorage.getItem('AuthorizationHeader'));
+        },
+        success: function (result) {
+            console.log("Loan Approved!");
+            alert("The loan has been approved");
+            //location.href = "/loanAppReview";
+            location.reload(true);
+
+        },
+        error: function (xhr, resp, text) {
+            console.log(xhr, resp, text);
+        }
+    })
 }
 
 //Source for getting current row clicked in jQuery: https://stackoverflow.com/questions/13152369/get-current-rowindex-of-table-in-jquery/44679710
 //Source for getting appropriate table row with jQuery: https://stackoverflow.com/questions/14460421/get-the-contents-of-a-table-row-with-a-button-click
 //Approve Buttons
-$("#approveLoanButton1").click(function(){
-    var loanID = $(this).parent().parent().prev().children()[4];
-    console.log(loanID.innerText)
-    console.log(parseFloat($('#interestRateInput1').val()))
-});
 
-$("#approveLoanButton2").click(function(){
-    var loanID = $(this).parent().parent().prev().children()[4];
-    console.log(loanID.innerText)
-    console.log(parseFloat($('#interestRateInput2').val()))
-});
-$("#approveLoanButton3").click(function(){
-    var loanID = $(this).parent().parent().prev().children()[4];
-    console.log(loanID.innerText)
-    console.log(parseFloat($('#interestRateInput3').val()))
-});
-$("#approveLoanButton4").click(function(){
-    var loanID = $(this).parent().parent().prev().children()[4];
-    console.log(loanID.innerText)
-    console.log(parseFloat($('#interestRateInput4').val()))
-});
-$("#approveLoanButton5").click(function(){
-    var loanID = $(this).parent().parent().prev().children()[4];
-    console.log(loanID.innerText)
-    console.log(parseFloat($('#interestRateInput5').val()))
-});
-$("#approveLoanButton6").click(function(){
-    var loanID = $(this).parent().parent().prev().children()[4];
-    console.log(loanID.innerText)
-    console.log(parseFloat($('#interestRateInput6').val()))
-});
-$("#approveLoanButton7").click(function(){
-    var loanID = $(this).parent().parent().prev().children()[4];
-    console.log(loanID.innerText)
-    console.log(parseFloat($('#interestRateInput7').val()))
-});
-$("#approveLoanButton8").click(function(){
-    var loanID = $(this).parent().parent().prev().children()[4];
-    console.log(loanID.innerText)
-    console.log(parseFloat($('#interestRateInput8').val()))
-});
-$("#approveLoanButton9").click(function(){
-    var loanID = $(this).parent().parent().prev().children()[4];
-    console.log(loanID.innerText)
-    console.log(parseFloat($('#interestRateInput9').val()))
-});
-$("#approveLoanButton10").click(function(){
-    var loanID = $(this).parent().parent().prev().children()[4];
-    console.log(loanID.innerText)
-    console.log(parseFloat($('#interestRateInput10').val()))
-});
+// document.getElementById('approveLoanButton0').on('click', function (e){
+//     e.preventDefault();
+//     var loanID = $(this).parent().parent().prev().children()[4].innerText;
+//     var annualInterestRate = parseFloat($('#interestRateInput0').val());
+//     console.log(loanID.innerText)
+//     console.log(parseFloat($('#interestRateInput0').val()))
+//     //API call to post an approved loan
+//     $.ajax({
+//         url: '/api/loan/approve/'+loanID,
+//         type: "POST",
+//         dataType: 'json',
+//         contentType: "application/json; charset=utf-8",
+//         data: JSON.stringify(annualInterestRate),
+//         beforeSend: function (xhr) {
+//             xhr.setRequestHeader('Authorization', localStorage.getItem('AuthorizationHeader'));
+//         },
+//         success: function (result) {
+//             console.log("Loan Approved!");
+//             alert("The loan has been approved");
+//             location.href = "/loanAppReview";
+//         },
+//         error: function (xhr, resp, text) {
+//             console.log(xhr, resp, text);
+//         }
+//     })
+//
+//
+//
+// });
+
+
+// $("#approveLoanButton1").click(function(){
+//     var loanID = $(this).parent().parent().prev().children()[4].innerText;
+//     //console.log(loanID.innerText)
+//     //console.log(parseFloat($('#interestRateInput1').val()))
+//     //API call to post an approved loan
+//     $.ajax({
+//         url: '/api/loan/approve/'+loanID,
+//         type: "POST",
+//         dataType: 'json',
+//         contentType: "application/json; charset=utf-8",
+//         data: JSON.stringify({'annualInterestRate': parseFloat($('#interestRateInput1').val())}),
+//         beforeSend: function (xhr) {
+//             xhr.setRequestHeader('Authorization', localStorage.getItem('AuthorizationHeader'));
+//         },
+//         success: function (result) {
+//             console.log("Loan Approved!");
+//             alert("The loan has been approved");
+//             location.href = "/loanAppReview";
+//         },
+//         error: function (xhr, resp, text) {
+//             console.log(xhr, resp, text);
+//         }
+//     })
+//
+//
+//
+// });
+
+// $("#approveLoanButton2").click(function(){
+//     var loanID = $(this).parent().parent().prev().children()[4];
+//     console.log(loanID.innerText)
+//     console.log(parseFloat($('#interestRateInput2').val()))
+// });
+// $("#approveLoanButton3").click(function(){
+//     var loanID = $(this).parent().parent().prev().children()[4];
+//     console.log(loanID.innerText)
+//     console.log(parseFloat($('#interestRateInput3').val()))
+// });
+// $("#approveLoanButton4").click(function(){
+//     var loanID = $(this).parent().parent().prev().children()[4];
+//     console.log(loanID.innerText)
+//     console.log(parseFloat($('#interestRateInput4').val()))
+// });
+// $("#approveLoanButton5").click(function(){
+//     var loanID = $(this).parent().parent().prev().children()[4];
+//     console.log(loanID.innerText)
+//     console.log(parseFloat($('#interestRateInput5').val()))
+// });
+// $("#approveLoanButton6").click(function(){
+//     var loanID = $(this).parent().parent().prev().children()[4];
+//     console.log(loanID.innerText)
+//     console.log(parseFloat($('#interestRateInput6').val()))
+// });
+// $("#approveLoanButton7").click(function(){
+//     var loanID = $(this).parent().parent().prev().children()[4];
+//     console.log(loanID.innerText)
+//     console.log(parseFloat($('#interestRateInput7').val()))
+// });
+// $("#approveLoanButton8").click(function(){
+//     var loanID = $(this).parent().parent().prev().children()[4];
+//     console.log(loanID.innerText)
+//     console.log(parseFloat($('#interestRateInput8').val()))
+// });
+// $("#approveLoanButton9").click(function(){
+//     var loanID = $(this).parent().parent().prev().children()[4];
+//     console.log(loanID.innerText)
+//     console.log(parseFloat($('#interestRateInput9').val()))
+// });
+// $("#approveLoanButton10").click(function(){
+//     var loanID = $(this).parent().parent().prev().children()[4];
+//     console.log(loanID.innerText)
+//     console.log(parseFloat($('#interestRateInput10').val()))
+// });
 
 
 
 //Rejection Buttons
-$('#rejectLoanButton1, #rejectLoanButton2, #rejectLoanButton3').click(function () {
-    alert("Loan Rejected")
-})
-
-
-function buildPendingLoansTable(loans) {
-    for (loan in loans) {
-        var i = loans[loan]
-        var pendingLoansRow = "<tr class=\"tableRowRadius\" onclick=\"toggleTableRows('hidden_row" + i + "')\">\n" +
-            "                            <td><svg id=\"hidden_row" + i + "chevron\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-5 -8 24 24\" width=\"24\" height=\"24\" preserveAspectRatio=\"xMinYMin\" class=\"icon__icon\"><path d=\"M7.071 5.314l4.95-4.95a1 1 0 1 1 1.414 1.414L7.778 7.435a1 1 0 0 1-1.414 0L.707 1.778A1 1 0 1 1 2.121.364l4.95 4.95z\"></path></svg></td>\n" +
-            "                            <td id=\"firstRow" + i + "\">cell2_1</td>\n" +
-            "                            <td id=\"lastRow" + i + "\">cell3_1</td>\n" +
-            "                            <td id=\"dateRow" + i + "\">cell4_1</td>\n" +
-            "                            <td id=\"idRow" + i + "\">cell5_1</td>\n" +
-            "                            <td id=\"amountRow" + i + "\">cell6_1</td>\n" +
-            "                            <td id=\"statusRow" + i + "\">Pending</td>\n" +
-            "                        </tr>\n" +
-            "                        <tr id=\"hidden_row" + i + "\" class=\"hidden_row\">\n" +
-            "                            <td>\n" +
-            "                                <h3>Type:</h3>\n" +
-            "                            </td>\n" +
-            "                            <td class=\"pendingLoansTableExpanded\">\n" +
-            "                                <button class=\"loanOptionCard cardRadius\" id=\"carLoanCard\" value=\"Car\" onclick=\"setCarLoanSelected()\">\n" +
-            "                                    <div class=\"loanOptionCardTopRow\">\n" +
-            "                                        <h4>Car</h4>\n" +
-            "                                        <svg id=\"icons-sm\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-2 -2 24 24\" preserveAspectRatio=\"xMinYMin\" class=\"icon__icon\"><path d=\"M14 17H6v1.5A1.5 1.5 0 0 1 4.5 20h-1A1.5 1.5 0 0 1 2 18.5v-1.67A3.001 3.001 0 0 1 0 14v-3c0-.62.188-1.196.51-1.674l1.086-6.8A3 3 0 0 1 4.56 0h10.88A3 3 0 0 1 18.4 2.527l1.083 6.79c.326.48.516 1.06.516 1.683v3a3.001 3.001 0 0 1-2 2.83v1.67a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5V17zm3.25-8.99l-.824-5.168A1 1 0 0 0 15.44 2H4.559a1 1 0 0 0-.988.842l-.825 5.169A3.04 3.04 0 0 1 3 8h14c.084 0 .168.003.25.01zM15.5 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-11 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm.704-10.906a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z\"></path></svg>\n" +
-            "                                    </div>\n" +
-            "                                    <div class=\"loanOptionCardBottomRow\">\n" +
-            "                                        <h5 style=\"font-weight: lighter\">Loan for Vehicles</h5>\n" +
-            "                                    </div>\n" +
-            "                                </button>\n" +
-            "                            </td>\n" +
-            "                            <td>\n" +
-            "                                <h3>Tenure:</h3>\n" +
-            "                            </td>\n" +
-            "                            <td>\n" +
-            "                                <h4>8 months</h4>\n" +
-            "                            </td>\n" +
-            "                            <td>\n" +
-            "                                <label for=\"interestRateInput" + i + "\" style=\"font-weight: bold\">Interest Rate: (%)</label>\n" +
-            "                                <input type=\"number\" id=\"interestRateInput" + i + "\" />\n" +
-            "                            </td>\n" +
-            "                            <td></td>\n" +
-            "                            <td>\n" +
-            "                                <button id=\"approveLoanButton" + i + "\" class=\"approveLoanButton\" onclick=\"approveLoan()\">Approve</button>\n" +
-            "                                <button id=\"rejectLoanButton" + i + "\" class=\"rejectLoanButton\">Reject</button>\n" +
-            "                            </td>\n" +
-            "                        </tr>";
-        $('.pendingLoansTableBody').append(pendingLoansRow);
-    }
+function rejectLoan(loanId) {
+    var loanID = loanId;
+    //API call to post a rejected loan
+    $.ajax({
+        url: '/api/loan/reject/'+loanID,
+        type: "POST",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Authorization', localStorage.getItem('AuthorizationHeader'));
+        },
+        success: function (result) {
+            console.log("Loan Rejected!");
+            alert("Loan application rejected");
+            //location.href = "/loanAppReview";
+            location.reload(true);
+        },
+        error: function (xhr, resp, text) {
+            console.log(xhr, resp, text);
+        }
+    })
 }
+
+
+// $('#rejectLoanButton1, #rejectLoanButton2, #rejectLoanButton3').click(function () {
+//     //alert("Loan Rejected")
+//
+//     //API call to post a rejected loan
+//     $.ajax({
+//         url: '/api/loan/reject/'+id,
+//         type: "POST",
+//         dataType: 'json',
+//         contentType: "application/json; charset=utf-8",
+//         beforeSend: function (xhr) {
+//             xhr.setRequestHeader('Authorization', localStorage.getItem('AuthorizationHeader'));
+//         },
+//         success: function (result) {
+//             console.log("Successfully submitted!");
+//             alert("Loan application was successful -- you will be contacted by an ATZ Finance employee shortly");
+//             location.href = "/dashboard";
+//         },
+//         error: function (xhr, resp, text) {
+//             console.log(xhr, resp, text);
+//         }
+//     })
+// })
+
+
+
 
 
 function buildProcessedLoansTable(loans) {
@@ -196,4 +347,27 @@ function buildProcessedLoansTable(loans) {
         $('.processedLoansTableBody').append(processedLoansRow);
     }
 }
+
+
+
+
+
+//API call to post a rejected loan
+$.ajax({
+    url: '/api/loan/reject/'+id,
+    type: "POST",
+    dataType: 'json',
+    contentType: "application/json; charset=utf-8",
+    beforeSend: function (xhr) {
+        xhr.setRequestHeader('Authorization', localStorage.getItem('AuthorizationHeader'));
+    },
+    success: function (result) {
+        console.log("Successfully submitted!");
+        alert("Loan application was successful -- you will be contacted by an ATZ Finance employee shortly");
+        location.href = "/dashboard";
+    },
+    error: function (xhr, resp, text) {
+        console.log(xhr, resp, text);
+    }
+})
 

@@ -53,7 +53,7 @@
 
             </div>
             <div class="navbarButtons">
-                <a th:href="@{/login}" style="text-decoration: none"><button class="navbarButton"><svg xmlns="http://www.w3.org/2000/svg" id="navbarButtonIcons" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>Sign Out</button></a>
+                <a th:href="@{/logout}" style="text-decoration: none"><button class="navbarButton"><svg xmlns="http://www.w3.org/2000/svg" id="navbarButtonIcons" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>Sign Out</button></a>
             </div>
 
         </div>
@@ -88,10 +88,10 @@
                         <thead>
                         <tr>
                             <th></th>
-                            <th>First</th>
-                            <th>Last</th>
                             <th>Date</th>
-                            <th>ID</th>
+                            <th></th>
+                            <th></th>
+                            <th>User ID</th>
                             <th>Amount</th>
                             <th>Status</th>
                         </tr>
@@ -101,22 +101,22 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="processedLoansCard cardRadius">
-                    <h2 class="processedLoanCardTitle">Processed Loans</h2>
-                    <!--Table generator: https://divtable.com/table-styler/ -->
-                    <table class="processedLoansTable">
-                        <thead>
-                        <tr>
-                            <th>Last</th>
-                            <th>ID</th>
-                            <th>Status</th>
-                        </tr>
-                        </thead>
-                        <tbody class="processedLoansTableBody">
+<!--                <div class="processedLoansCard cardRadius">-->
+<!--                    <h2 class="processedLoanCardTitle">Processed Loans</h2>-->
+<!--                    &lt;!&ndash;Table generator: https://divtable.com/table-styler/ &ndash;&gt;-->
+<!--                    <table class="processedLoansTable">-->
+<!--                        <thead>-->
+<!--                        <tr>-->
+<!--                            <th>Last</th>-->
+<!--                            <th>ID</th>-->
+<!--                            <th>Status</th>-->
+<!--                        </tr>-->
+<!--                        </thead>-->
+<!--                        <tbody class="processedLoansTableBody">-->
 
-                        </tbody>
-                    </table>
-                </div>
+<!--                        </tbody>-->
+<!--                    </table>-->
+<!--                </div>-->
             </div>
         </div>
     </div>
