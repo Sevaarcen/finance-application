@@ -23,19 +23,14 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void makePayment(MakeTransactionRequest makeTransactionRequest) {
         logger.info("Making payment with userId={} and value={}", makeTransactionRequest.getUserId(), makeTransactionRequest.getValue());
-        Transaction transaction = new Transaction(makeTransactionRequest.getUserId(), makeTransactionRequest.getValue());
+        Transaction transaction = new Transaction(makeTransactionRequest.getUserId(), makeTransactionRequest.getValue(), makeTransactionRequest.getLoanId());
         transactionRepository.save(transaction);
     }
 
     @Override
     public List<Transaction> viewPaymentsByUser(String userId) {
         Optional<List<Transaction>> byUserId = transactionRepository.findByUserId(userId);
-        if (byUserId.isPresent()) {
-            List<Transaction> transactions = byUserId.get();
-            return transactions;
-        } else {
-            return null;
-        }
+        return byUserId.orElse(null);
     }
 
     @Override

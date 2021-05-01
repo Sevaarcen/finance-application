@@ -13,11 +13,13 @@ public class Transaction {
     private String userId;
     private double value;
     private Date date;
+    private String loanId;
 
-    public Transaction(String userId, double value) {
+    public Transaction(String userId, double value, String loanId) {
         this.userId = userId;
         this.value = value;
         this.date = new Date();
+        this.loanId = loanId;
     }
 
     public String getId() {
@@ -52,6 +54,14 @@ public class Transaction {
         this.date = date;
     }
 
+    public String getLoanId() {
+        return loanId;
+    }
+
+    public void setLoanId(String loanId) {
+        this.loanId = loanId;
+    }
+
     @Override
     public String toString() {
         return new StringJoiner(", ", Transaction.class.getSimpleName() + "[", "]")
@@ -59,6 +69,7 @@ public class Transaction {
                 .add("userId='" + userId + "'")
                 .add("value=" + value)
                 .add("date=" + date)
+                .add("loanId='" + loanId + "'")
                 .toString();
     }
 }
