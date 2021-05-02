@@ -1,0 +1,498 @@
+body {
+    background-color: white;
+    font-family: "Leelawadee UI";
+    /*display: flex;*/
+    /*flex-direction: row;*/
+}
+
+h1 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/*h3 {*/
+/*    margin-top: 5px;*/
+/*    margin-bottom: 5px;*/
+/*}*/
+
+h4 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h5 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h6 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.lightText {
+    color: white;
+}
+
+#icons {
+    stroke: mediumpurple;
+    fill: transparent;
+    width: 50px;
+    height: 50px;
+}
+
+#icons-sm {
+    stroke: mediumpurple;
+    fill: transparent;
+    width: 30px;
+    height: 30px;
+}
+
+#myProfileLink {
+    color: mediumpurple;
+    text-decoration: none
+}
+
+.cardRadius {
+    border-radius: 8px;
+    -webkit-box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.62);
+    box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.62);
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar {
+    background-color: whitesmoke;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+.navbarLinksContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.navbarLinksButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbarLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+.navbarLinks > h2 {
+    padding-left: 10px;
+}
+
+.navbarButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbarButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: gray;
+    /*color: #c399ff;*/
+    padding: 5px 20px;
+    margin: 5px 0px;
+    outline: none;
+    box-shadow: 1px 2px 2px 1px #b0b1b1;
+}
+
+.navbarButton:hover {
+    cursor: pointer;
+}
+
+#navbarButtonIcons {
+    stroke: black;
+    fill: transparent;
+    width: 15px;
+    height: 15px;
+    padding-right: 5px;
+}
+
+.dashboardView {
+    display: flex;
+    flex-direction: column;
+    flex: 7;
+}
+
+.titleRow {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.creditCard {
+    background-color: darkslategray;
+    display: flex;
+    flex: 2;
+    margin: 0px 20px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 340px;
+}
+
+.creditCard > .creditCardText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.creditCard > .balanceCardPaymentMethodLogo {
+
+}
+
+.creditTopRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.creditCardSvg {
+    margin: 20px 20px 0px 20px;
+    height: 50px;
+    width: 300px;
+}
+
+.creditMiddleRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.creditBottomRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.middleRow {
+    display: flex;
+    justify-content: center;
+}
+
+.paymentFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*max-width: 300px;*/
+    background-color: whitesmoke;
+    width: 60%;
+}
+
+.cardImageHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardImageHeader > * {
+    padding: 0px 20px;
+}
+
+.cardImageHeader > svg {
+    width: 64px;
+    height: 64px;
+}
+
+/*CSS Grid Builder tool resource: https://grid.layoutit.com/*/
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0px 10px;
+    grid-template-areas:
+    ". ."
+    ". ."
+    ". ."
+    ". .";
+    margin: 10px;
+}
+
+.formGrid > label, input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+}
+
+.formGrid > input {
+    margin: 5px;
+}
+
+.paymentCardButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.primaryButton {
+    background-color: darkslategray;
+    color: white;
+    border-radius: 8px;
+    border-color: transparent;
+    padding: 5px 20px;
+    outline: none;
+}
+
+.secondaryButton {
+    background-color: transparent;
+    border-radius: 8px;
+    border-color: #c399ff;
+    color: #c399ff;
+    padding: 5px 20px;
+    outline: none;
+}
+
+.primaryButton:hover {
+    cursor: pointer;
+}
+
+.secondaryButton:hover {
+    cursor: pointer;
+}
+
+/*Mobile CSS*/
+
+@media only screen
+and (min-device-width: 300px)
+and (max-device-width: 800px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .navbar {
+        flex-direction: column;
+        background-color: #9370db;
+    }
+
+    .navbar > .navbarLinksContainer > .navbarLinksButton {
+        margin: 30px 5px;
+    }
+
+    #userName {
+        font-size: x-large;
+    }
+
+    #myProfileLink {
+        color: white;
+        font-size: large;
+    }
+
+    .navbarLinksContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .navbarLinksButton {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        border-radius: 8px;
+        background-color: white;
+    }
+
+    .navbarLinks {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        /*border: 1px solid black;*/
+        /*border-radius: 8px;*/
+        /*background-color: white;*/
+    }
+
+    #dashboardTitle {
+        font-size: medium;
+    }
+
+    #accountTitle {
+        font-size: medium;
+    }
+
+    #bankingTitle {
+        font-size: medium;
+    }
+
+    #loanReviewTitle {
+        font-size: medium;
+        text-align: center;
+    }
+
+    .navbarButtons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbarButtons > a {
+        padding: 0px 5px;
+    }
+
+    .navbarButton {
+        padding: 10px 30px;
+        font-size: medium;
+    }
+
+    .dashboardView {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .titleRow {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h2 {
+        font-size: medium;
+    }
+
+    /*.titleRow {*/
+    /*    display: flex;*/
+    /*    flex-direction: row;*/
+    /*    padding: 20px;*/
+    /*}*/
+
+    .titleContainer {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding-bottom: 10px;
+    }
+
+    .titleContainer > * {
+        text-align: center;
+    }
+
+    .creditCard {
+        background-color: darkslategray;
+        display: flex;
+        flex: 2;
+        margin: 0px 0px;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        /*max-width: 0px;*/
+        width: 100%;
+    }
+
+    .paymentFormContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /*max-width: 300px;*/
+        background-color: whitesmoke;
+        width: 100%;
+    }
+
+    .cardImageHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cardImageHeader > * {
+        padding: 0px 20px;
+    }
+
+    .cardImageHeader > svg {
+        width: 64px;
+        height: 64px;
+    }
+
+    .cardImageHeader > h3 {
+        font-size: x-large;
+    }
+
+    .formGrid {
+        padding: 15px;
+    }
+
+    .formGrid > label, input {
+
+        /*font-size: small;*/
+    }
+
+    .primaryButton {
+        background-color: darkslategray;
+        color: white;
+        border-radius: 8px;
+        border-color: transparent;
+        padding: 15px 40px;
+        outline: none;
+        font-size: larger;
+    }
+
+    .secondaryButton {
+        background-color: transparent;
+        border-radius: 8px;
+        border-color: #c399ff;
+        color: #c399ff;
+        padding: 5px 20px;
+        outline: none;
+    }
+
+}

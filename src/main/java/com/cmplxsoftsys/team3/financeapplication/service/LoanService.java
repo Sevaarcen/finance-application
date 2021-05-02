@@ -1,41 +1,16 @@
 package com.cmplxsoftsys.team3.financeapplication.service;
 
-import org.springframework.http.ResponseEntity;
+import com.cmplxsoftsys.team3.financeapplication.payload.request.LoanApplicationRequest;
+
+import com.cmplxsoftsys.team3.financeapplication.payload.request.LoanDecisionRequest;
 
 /**
  * This is an interface that handles the verification of loan contents and conversion of monetary values to USD.
  */
 public interface LoanService {
 
-    /**
-     * Returns an HTTP verification status
-     * @return status
-     */
-    public ResponseEntity<?> verifyLoanContents();
-
-    /**
-     * Returns an HTTP conversion status
-     * @return status
-     */
-    public ResponseEntity<?> convertToUSD();
-
-    /**
-     * Returns an HTTP conversion status
-     * @return status
-     */
-    public ResponseEntity<?> submitLoanApplication();
-
-    /**
-     * Returns an HTTP conversion status
-     * @return status
-     */
-    public ResponseEntity<?> getLoansForAccount();
-
-    /**
-     * Returns an HTTP conversion status
-     * @return status
-     */
-    public ResponseEntity<?> getLoanApplicationStatus();
-
+    public void submitLoanApplication(LoanApplicationRequest loanApplicationRequest);
+    public void approveLoan(LoanDecisionRequest loanDecisionRequest, String id);
+    public void rejectLoan(String id);
 
 }

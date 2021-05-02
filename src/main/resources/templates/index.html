@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+    <title>ATZ Finance</title>
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Welcome!</h1>
+            <h5>"Do beyond what you can imagine"</h5>
+            <div class="buttonContainer">
+                <button class="signUpButton" th:onclick="|window.location.href='@{/signup}'|">SIGN UP</button>
+                <button class="loginButton" th:onclick="|window.location.href='@{/signin}'|">LOGIN</button>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+    </footer>
+<script th:src="@{/js/scripts.js}"></script>
+</body>
+</html>

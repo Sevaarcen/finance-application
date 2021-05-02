@@ -38,13 +38,13 @@ public class UserDetailsImpl implements UserDetails {
     /**
      * This is the Full Constructor for the User Details implementation within security
      *
-     * @param id user id
-     * @param username user display name
-     * @param email user email
-     * @param password user password
-     * @param fName user first name
-     * @param lName user last name
-     * @param address user address
+     * @param id          user id
+     * @param username    user display name
+     * @param email       user email
+     * @param password    user password
+     * @param fName       user first name
+     * @param lName       user last name
+     * @param address     user address
      * @param authorities user privileges
      */
     public UserDetailsImpl(String id, String username, String email, String password, String fName, String lName, String address,
@@ -83,6 +83,7 @@ public class UserDetailsImpl implements UserDetails {
 
     /**
      * Gets a collection of granted authorities of a user
+     *
      * @return A collection of authorities
      */
     @Override
@@ -92,6 +93,7 @@ public class UserDetailsImpl implements UserDetails {
 
     /**
      * Returns the user id within the security context associated with their application account
+     *
      * @return a User id
      */
     public String getId() {
@@ -100,6 +102,7 @@ public class UserDetailsImpl implements UserDetails {
 
     /**
      * Returns the email address correlated with a user's financial account
+     *
      * @return a user's email address
      */
     public String getEmail() {
@@ -108,6 +111,7 @@ public class UserDetailsImpl implements UserDetails {
 
     /**
      * Returns the user's password of their corresponding application account
+     *
      * @return a user's account password
      */
     @Override
@@ -117,6 +121,7 @@ public class UserDetailsImpl implements UserDetails {
 
     /**
      * Returns the user's username associated with their application id
+     *
      * @return a user's username
      */
     @Override
@@ -126,6 +131,7 @@ public class UserDetailsImpl implements UserDetails {
 
     /**
      * Returns the user's first name associated with their application account
+     *
      * @return a user's first name
      */
     public String getFName() {
@@ -134,6 +140,7 @@ public class UserDetailsImpl implements UserDetails {
 
     /**
      * Returns the user's last name associated with their application account
+     *
      * @return a user's last name
      */
     public String getLName() {
@@ -142,6 +149,7 @@ public class UserDetailsImpl implements UserDetails {
 
     /**
      * Returns the user's address associated with their application account
+     *
      * @return a user's address
      */
     public String getAddress() {
@@ -150,6 +158,7 @@ public class UserDetailsImpl implements UserDetails {
 
     /**
      * Check if the user's account is expired
+     *
      * @return a boolean: true if it's not expired
      */
     @Override
@@ -159,6 +168,7 @@ public class UserDetailsImpl implements UserDetails {
 
     /**
      * Check if the user's account is locked
+     *
      * @return a boolean: true if account is not locked
      */
     @Override
@@ -168,6 +178,7 @@ public class UserDetailsImpl implements UserDetails {
 
     /**
      * Check if the user's credentials are expired
+     *
      * @return a boolean: true if the credentials are not expired
      */
     @Override
@@ -177,6 +188,7 @@ public class UserDetailsImpl implements UserDetails {
 
     /**
      * Check if a user's account is enabled
+     *
      * @return a boolean: true if the user is enabled
      */
     @Override
@@ -186,6 +198,7 @@ public class UserDetailsImpl implements UserDetails {
 
     /**
      * Checks to see whether the given user object is equal to an existing user id
+     *
      * @param o
      * @return Boolean for whether the current user id matches a given user's id within security implementation
      */

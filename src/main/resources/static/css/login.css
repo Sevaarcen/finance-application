@@ -1,0 +1,319 @@
+html {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+body {
+    background: linear-gradient(0deg, rgba(0,0,0,0.49670290479473034) 0%, rgba(0,0,0,0.49670290479473034) 100%), url("../images/cityBg.jpg") no-repeat fixed center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /*Thanks to: https://css-tricks.com/perfect-full-page-background-image/*/
+    font-family: "Leelawadee UI";
+
+    height: 100vh;
+    width: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+    /*https://rajatamil.medium.com/css-make-a-div-full-screen-402f9a935d15*/
+}
+
+h1 {
+    color: white;
+    font-size: 56px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h5 {
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+}
+
+.signUpButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #103e10;
+    border-radius: 0px;
+    border-width: 1px;
+    color: white;
+    padding: 10px 80%;
+    white-space: nowrap;
+    margin: 5px 0px;
+    outline: none;
+}
+
+.loginButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 0px;
+    border-width: 1px;
+    color: #103e10;
+    font-weight: bold;
+    padding: 10px 91%;
+    margin: 5px 0px;
+    outline: none;
+}
+
+.signUpButton:hover {
+    cursor: pointer;
+}
+
+.loginButton:hover {
+    cursor: pointer;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+}
+
+.signInButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #103e10;
+    border-radius: 0px;
+    border-width: 1px;
+    color: white;
+    padding: 10px 80%;
+    white-space: nowrap;
+    margin: 5px 0px;
+    outline: none;
+}
+
+.signInButton:hover {
+    cursor: pointer;
+}
+
+/*https://stackoverflow.com/questions/917610/put-icon-inside-input-element-in-a-form*/
+.signInInputUsername {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-indent: 20%;
+    background: white url("../images/user.svg") no-repeat scroll 5px 5px;
+}
+
+.signInInputPassword {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-indent: 20%;
+    background: white url("../images/lock.svg") no-repeat scroll 5px 5px;
+}
+
+.signInButtonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.forgotPassword {
+    color: white;
+    font-size: x-small;
+}
+
+.socialIconsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30%;
+    width: 50%;
+}
+
+#socialIconsSm {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+}
+
+
+
+/*Mobile CSS*/
+
+@media only screen
+and (min-device-width: 300px)
+and (max-device-width: 830px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+
+    html {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 100vh;
+        height: 100vh;
+    }
+
+    body {
+        font-family: "Leelawadee UI";
+
+        /*height: 100vh;*/
+        /*width: 100vh;*/
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        overflow: hidden;
+    }
+
+    body > main {
+
+    }
+
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        height: 100%;
+        width: 100%;
+        /*https://rajatamil.medium.com/css-make-a-div-full-screen-402f9a935d15*/
+    }
+
+    h1 {
+        color: white;
+        font-size: 90px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    h5 {
+        color: white;
+        font-size: x-large;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .buttonContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20%;
+    }
+
+    .signUpButton {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #103e10;
+        border-radius: 0px;
+        border-width: 1px;
+        color: white;
+        padding: 40px 80%;
+        white-space: nowrap;
+        margin: 20px 0px;
+        outline: none;
+        font-size: xxx-large;
+    }
+
+    .loginButton {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: whitesmoke;
+        border-radius: 0px;
+        border-width: 1px;
+        color: #103e10;
+        font-weight: bold;
+        padding: 40px 92%;
+        margin: 5px 0px;
+        outline: none;
+        font-size: xxx-large;
+    }
+
+    /*https://stackoverflow.com/questions/917610/put-icon-inside-input-element-in-a-form*/
+    .signInInputUsername {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-indent: 10%;
+        font-size: 40px;
+
+        background: white url("../images/user.svg") no-repeat scroll 10px 10px;
+        background-size: 40px 40px;
+    }
+
+    .signInInputPassword {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-indent: 10%;
+        font-size: 40px;
+
+        background: white url("../images/lock.svg") no-repeat scroll 10px 10px;
+        background-size: 40px 40px;
+    }
+
+    .signInButtonContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0px;
+    }
+
+    .signInButton {
+
+        font-size: xx-large;
+    }
+
+    .forgotPassword {
+        color: white;
+        font-size: larger;
+    }
+
+    .socialIconsContainer {
+        margin-top: 10%;
+    }
+
+    #socialIconsSm {
+        width: 60px;
+        height: 60px;
+        stroke: white;
+    }
+
+}

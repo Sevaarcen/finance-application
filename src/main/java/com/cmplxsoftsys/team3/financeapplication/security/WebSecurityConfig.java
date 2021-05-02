@@ -33,7 +33,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private AuthEntryPointJwt unauthorizedHandler;
 
     /**
-     * Returns a new JWT Authentication token filter
+     * Returns a new JWT Authentication token filter.
+     *
      * @return A new Jwt Authentication Token filter object
      */
     @Bean
@@ -43,6 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Configures the authenticationManagerBuilder to handle the user's encoded password
+     *
      * @param authenticationManagerBuilder
      * @throws Exception
      */
@@ -53,6 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Returns the authenticationManagerBean for handling the encryption/decryption status of user credentials
+     *
      * @return The authenticationManagerBean parameters
      * @throws Exception
      */
@@ -64,6 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Encodes user passwords
+     *
      * @return A new BCryptPasswordEncoder object with the user's encoded password
      */
     @Bean
@@ -81,15 +85,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests().antMatchers("/api/auth/**").permitAll()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and()
+                .authorizeRequests()
+                .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/test/**").permitAll()
+                .antMatchers("/swagger-ui/**").permitAll()
+                .antMatchers("/v3/api-docs/**").permitAll()
+                .antMatchers("/swagger-ui.html").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/index.html").permitAll()
-                //.antMatchers("/api/pepper/**").permitAll()
+                .antMatchers("/signin").permitAll()
+                .antMatchers("/signup").permitAll()
                 .antMatchers("/actuator/**").permitAll()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/signin")
+                .and()
+                .logout()
+                .disable();
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
