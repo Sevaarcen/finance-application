@@ -22,10 +22,10 @@ $.ajax({
             for (i in transactions) {
                 var transaction = transactions[i]
                 var transactionRow = "<tr class=\"cardRadius\">\n" +
-                    "                            <td id=\"dateTransactionRow" + i + "\">transaction.date</td>\n" +
-                    "                            <td id=\"userIdTransactionRow" + i + "\">transaction.userId</td>\n" +
-                    "                            <td id=\"idTransactionRow" + i + "\">transaction.id</td>\n" +
-                    "                            <td id=\"valueTransactionRow" + i + "\">transaction.value</td>\n" +
+                    "                            <td id=\"dateTransactionRow" + i + "\">" +  new Date(transaction.date).toLocaleString() +  "</td>\n" +
+                    "                            <td id=\"userIdTransactionRow" + i + "\">" + transaction.userId + "</td>\n" +
+                    "                            <td id=\"idTransactionRow" + i + "\">" + transaction.id + "</td>\n" +
+                    "                            <td id=\"valueTransactionRow" + i + "\">" + "$" + transaction.value + "</td>\n" +
                     "                        </tr>"
                 $('.transactionHistoryTableBody').append(transactionRow);
             }

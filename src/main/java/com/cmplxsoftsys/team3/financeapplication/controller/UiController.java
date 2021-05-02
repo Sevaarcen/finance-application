@@ -1,14 +1,16 @@
 package com.cmplxsoftsys.team3.financeapplication.controller;
 
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 /**
  * This class is used to handle all of the interfaces that we will be using and implementing within the application
  */
 
 @Controller
-public class UiController {
+public class UiController implements ErrorController {
 
     /**
      * This method renders and sends the HTML of the Homepage view
@@ -68,6 +70,7 @@ public class UiController {
     /**
      * This method renders and sends the HTML Employee Loan Application View
      */
+    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     @GetMapping("/loanAppReview")
     public String getLoanAppReview() { return "loanAppReview";}
 
@@ -82,4 +85,15 @@ public class UiController {
      */
     @GetMapping("/newPayment")
     public String getNewPayment() { return "newPayment";}
+
+    /**
+     * This method renders and sends the HTML Custom Error View
+     */
+    @GetMapping("/error")
+    public String handleError() { return "error";}
+
+    @Override
+    public String getErrorPath() {
+        return null;
+    }
 }
